@@ -9,7 +9,7 @@ var express 	 = require('express'),
 	busboy       = require('connect-busboy'),
 	when         = require('when'),
 
-	//middlewares  = require('./middlewares'),
+	middlewares  = require('./middlewares'),
 
 	models		 = require('./models'),
 	routes 	  	 = require('./routes');
@@ -31,13 +31,13 @@ function init() {
 
 
 	// ## Models and Migrations
-	models.init(),
+	models.init();
 
 	// ## Middlewares
-	//middlewares(server)
+	middlewares(server);
 
 	// ## Routing
-	//routes.api(server);
+	routes.api(server);
 
 	//routes.admin(server);
 	
