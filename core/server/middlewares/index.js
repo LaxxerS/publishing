@@ -17,6 +17,8 @@ module.exports = function(server) {
 	expressServer = server;
 
 	expressServer.engine('hbs', hbs.express3());
+	expressServer.use('/shared/', express.static(path.join(corePath, 'shared'), {maxAge: ONE_HOUR_MS}));
+	expressServer.use('/scripts/', express.static(path.join(corePath, 'client'), {maxAge: ONE_HOUR_MS}));
 	expressServer.set('views', path.join(corePath, 'server/views'));	
 	expressServer.set('view engine', 'hbs');
 
