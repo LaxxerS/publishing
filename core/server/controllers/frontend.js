@@ -3,12 +3,9 @@ var frontendControllers;
 
 frontendControllers = {
 	homepage: function(req, res) {
-			res.send('index');
+			res.render('default', {});
 		},
 
-	profile: function(req, res) {
-			res.send('profile');
-	}
 }
 
 module.exports = frontendControllers;
