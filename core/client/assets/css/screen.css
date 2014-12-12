@@ -1,0 +1,60 @@
+body {
+	font-family:"freight-text-pro", Georgia, Cambria, "Times New Roman", Times, serif;
+	color: #191918;
+	background: #ffffff;
+}
+
+.navbar {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	height: 60px;
+	background: #ffffff;
+	font-size: 0.75rem;
+}
+
+.nav-menu {
+	padding: 20px;
+}
+
+.nav-menu a {
+	text-decoration: none;
+	color: #191918;
+}
+
+.nav-tabs {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	font-size: 0.6875rem;
+	background: #fafafa;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0,0,0,0.05);	
+    border-top: 1px solid rgba(0,0,0,0.05);	
+    color: rgba(0,0,0,0.6);
+}
+
+.nav-tabs ul {
+	list-style: none;
+}
+
+.nav-tabs ul li {
+	display: inline-block;
+	vertical-align: top;
+	margin: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+/* Color Palette
+   - Almost-black: #191918
+   - Very-light-grey: #fafafa
+   - Img-bg-grey: #f0f0f0
+
+*/

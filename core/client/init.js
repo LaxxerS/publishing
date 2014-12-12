@@ -27,7 +27,7 @@
     };
 
 	App.init = function() {
-		//App.router = new App.Router();
+		App.router = new App.Router();
 
 		//App.notifications = new App.Views.NotificationCollection({model: []});
 

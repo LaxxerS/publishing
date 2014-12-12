@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: normal;
+	font-weight: 300;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: italic;
+	font-weight: 300;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Light Italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Book.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Book Italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Medium Italic.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: normal;
+	font-weight: 600;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Semibold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: italic;
+	font-weight: 600;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Semibold Italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Bold Italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: normal;
+	font-weight: 900;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Black.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'freight-text-pro';
+	font-style: italic;
+	font-weight: 900;
+	font-stretch: normal;
+    src: url('/shared/font/Freight Text Pro Black Italic.woff') format('woff');
+}
+
+/* Jaf Bernino Sans */
+
+@font-face {
+    font-family: 'jaf-bernino-sans';
+	font-style: normal;
+	font-weight: 300;
+	font-stretch: normal;
+    src: url('/shared/font/BerninoSansOffc-Lt.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'jaf-bernino-sans';
+	font-style: italic;
+	font-weight: 300;
+	font-stretch: normal;
+    src: url('/shared/font/BerninoSansOffc-LtIt.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'jaf-bernino-sans';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: normal;
+    src: url('/shared/font/BerninoSansOffc.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'jaf-bernino-sans';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: normal;
+    src: url('/shared/font/BerninoSansOffc-It.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'jaf-bernino-sans';
+	font-style: normal;
+	font-weight: 600;
+	font-stretch: normal;
+    src: url('/shared/font/BerninoSansOffc-Sb.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'jaf-bernino-sans';
+	font-style: italic;
+	font-weight: 600;
+	font-stretch: normal;
+    src: url('/shared/font/BerninoSansOffc-SbIt.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'jaf-bernino-sans';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: normal;
+    src: url('/shared/font/BerninoSansOffc-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'jaf-bernino-sans';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: normal;
+    src: url('/shared/font/BerninoSansOffc-BoldIt.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'jaf-bernino-sans';
+	font-style: normal;
+	font-weight: 800;
+	font-stretch: normal;
+    src: url('/shared/font/BerninoSansOffc-Exb.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'jaf-bernino-sans';
+	font-style: italic;
+	font-weight: 800;
+	font-stretch: normal;
+    src: url('/shared/font/BerninoSansOffc-ExbIt.woff') format('woff');
+}
