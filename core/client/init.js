@@ -2,7 +2,7 @@
 	'use struct';
 
 	function AppPaths() {
-		var root 	= window.location.protocol + "//" + window.location.host + "/";
+		var root 	= "/";
 
 		return {
 			root: root,

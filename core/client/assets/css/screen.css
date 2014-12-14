@@ -1,7 +1,8 @@
-body {
+html, body {
 	font-family:"freight-text-pro", Georgia, Cambria, "Times New Roman", Times, serif;
 	color: #191918;
 	background: #ffffff;
+	height: 100%;
 }
 
 .navbar {
@@ -21,6 +22,14 @@ body {
 .nav-menu a {
 	text-decoration: none;
 	color: #191918;
+}
+
+.main-contents {
+	position: absolute;
+	top: 60px;
+	left: 0;
+	background: #ffffff;
+	width: 70%;
 }
 
 .nav-tabs {
@@ -49,9 +58,40 @@ body {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
 }
 
+.nav-tabs ul li a {
+	color: rgba(0,0,0,0.6);
+	text-decoration: none;
+	-webkit-transition: color 0.5s ease-in-out;
+	   -moz-transition: color 0.5s ease-in-out;
+	        transition: color 0.5s ease-in-out;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.nav-tabs ul li a:hover {
+	color: #191918;
+}
+
+.nav-tabs ul .active {
+	font-weight: 600;
+	color: #191918;
+}
+
+.sidebar {
+	position: absolute;
+	top: 60px;
+	right: 0;
+	width: 30%;
+	background: #fafafa;
+	height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	border-top: 1px solid rgba(0,0,0,0.05);		
+}
 /* Color Palette
    - Almost-black: #191918
    - Very-light-grey: #fafafa

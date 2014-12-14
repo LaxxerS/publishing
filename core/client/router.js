@@ -4,15 +4,14 @@
 	App.Router = Backbone.Router.extend({
 
 		routes: {
-			''                 : 'home',
+			'': 'home',
+			'(:tab)/': 'home'
 		},
 
 
-		home: function() {
-			App.currentView = new App.Views.Home({el: '#main'});
-		},
-
-		
+		home: function(tab) {
+			App.currentView = new App.Views.Home({el: '#main', tab: tab});
+		}
 	});
 			
 }());
