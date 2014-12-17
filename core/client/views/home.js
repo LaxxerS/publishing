@@ -9,7 +9,7 @@
 
 
 		events: {
-			'click li': 'changeTab'
+			'click .nav-tabs-list li': 'changeTab'
 		},
 
 		initialize: function() {
@@ -20,15 +20,19 @@
 
 			var target = window.location.pathname.split( '/' )[1];
 
-			if(target !== '' || target !== 'top-stories' || target !== 'bookmarks') {
+			if(target !== '' && target !== 'top-stories' && target !== 'bookmarks') {
 				target = '';
 			}
 			this.menu.find('a[href=#' + target + ']').parent().addClass('active');
 			if(target === '') target = 'feed';
 			if(target === 'top-stories') target = 'top';
-			this.tab = new Tabs[target]({ el: '.contents-wrapper' });
+			this.tab = new Tabs[target]({ el: '.main-contents' });
 			this.renderTab();
 			NProgress.done();
+
+			this.sidebar = new App.Views.Sidebar({
+				el: '.sidebar'
+			});
 		},
 
 		changeTab: function(e) {
@@ -43,7 +47,7 @@
 			if(id === 'top-stories') id = 'top';
 
 			
-			this.tab = new Tabs[id]({ el: '.contents-wrapper' });
+			this.tab = new Tabs[id]({ el: '.main-contents' });
 			this.renderTab();
 		},
 
@@ -56,6 +60,14 @@
 			this.menu.find('a[href=#' + id + ']').parent().addClass('active');
 		}
 		
+	});
+	
+	App.Views.Sidebar = App.View.extend({
+		templateName: 'home/sidebar',
+
+		initialize: function() {
+			this.render();
+		}
 	});
 
 	Tabs.Base = App.View.extend({

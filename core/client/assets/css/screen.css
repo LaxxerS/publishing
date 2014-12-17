@@ -7,8 +7,7 @@ html, body {
 
 .navbar {
 	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-	font-weight: 300;
-	text-transform: uppercase;
+	font-weight: 700;
 	letter-spacing: .1em;
 	height: 60px;
 	background: #ffffff;
@@ -21,20 +20,46 @@ html, body {
 
 .nav-menu a {
 	text-decoration: none;
+	display: inline-block;
 	color: #191918;
 }
 
-.main-contents {
+.nav-buttons {
 	position: absolute;
-	top: 60px;
-	left: 0;
-	background: #ffffff;
-	width: 70%;
+	right: 20px;
+	top: 10px;
+	list-style: none;
+	margin: 0;
 }
+
+.nav-buttons li {
+	margin: 0;
+	display: inline-block;
+	margin-left: 5px;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 100%;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid rgba(0,0,0,0.05);	
+	width: 40px;
+	height: 40px; 
+}
+
+.nav-buttons li a {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+}
+
 
 .nav-tabs {
 	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	font-weight: 300;
+	width: 100%;
 	text-transform: uppercase;
 	letter-spacing: .1em;
 	font-size: 0.6875rem;
@@ -45,6 +70,7 @@ html, body {
     border-bottom: 1px solid rgba(0,0,0,0.05);	
     border-top: 1px solid rgba(0,0,0,0.05);	
     color: rgba(0,0,0,0.6);
+    padding: 0 85px;
 }
 
 .nav-tabs ul {
@@ -80,17 +106,312 @@ html, body {
 	color: #191918;
 }
 
-.sidebar {
+.main-contents {
 	position: absolute;
-	top: 60px;
-	right: 0;
-	width: 30%;
-	background: #fafafa;
-	height: 100%;
+	z-index: 100;
+	top: 120px;
+	left: 0;
+	background: #ffffff;
+	width: 70%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.contents-wrapper {
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 300;
+	margin: 20px 130px;
+	min-height: 160px;
+	border-bottom: 1px solid rgba(0,0,0,0.05);		
+}
+
+.contents-wrapper .recommend {
+	display: block;
+	padding: 5px 0;
+}
+
+.contents-wrapper .recommend a {
+	color: rgba(0,0,0,0.4);	
+	font-size: 0.9375rem;
+	text-decoration: none;
+	-webkit-transition: color 0.5s ease-in-out;
+	   -moz-transition: color 0.5s ease-in-out;
+	        transition: color 0.5s ease-in-out;
+}
+
+.contents-wrapper .recommend a:before {
+	padding: 0 7px 0 0;
+    text-transform: none;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-family:'FontAwesome';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    content: '\f004';
+    vertical-align: 7%;
+    font-size: 0.8125rem;
+}
+
+.contents-wrapper .recommend a:hover {
+	color: #191918;
+}
+
+.contents-wrapper .post-title a {
+	text-decoration: none;
+	color: #191918;
+	font-weight: 700;
+	font-size: 1.375rem;
+}
+
+.contents-wrapper .post-content {
+	color: rgba(0,0,0,0.6);
+	font-size: 1.125rem;	
+}
+
+.contents-wrapper .post-footer {
+	padding-top: 20px;
+	padding-bottom: 40px;
+	font-size: 0.875rem;
+}
+
+.contents-wrapper .post-footer .user-image {
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+}
+
+.contents-wrapper .author a {
+	display: block;
+	padding: 2px 0;
+	text-decoration: none;
+	color: #191918;
+}
+
+.contents-wrapper .time,
+.contents-wrapper .readtime {
+	color: rgba(0,0,0,0.4);
+	font-size: 0.8125rem;
+}
+
+.contents-wrapper .readtime {
+	text-decoration: none;
+	-webkit-transition: color 0.5s ease-in-out;
+	   -moz-transition: color 0.5s ease-in-out;
+	        transition: color 0.5s ease-in-out;
+}
+
+.contents-wrapper .readtime:before {
+	padding: 0 5px 0 8px;
+    text-transform: none;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-family:'FontAwesome';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    content: '\f02e';
+    font-size: 0.6875rem
+}
+
+.contents-wrapper .readtime:hover {
+	color: #191918;
+}
+
+.sidebar {
+	position: absolute;
+	top: 107px;
+	right: 0;
+	width: 30%;
+	background: #fafafa;
+	min-height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+	border-left: 1px solid rgba(0,0,0,0.05);		
 	border-top: 1px solid rgba(0,0,0,0.05);		
+}
+
+.sidebar-contents {
+	height: 100%;
+	padding: 40px 20px;
+}
+
+.sidebar-title {
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	text-transform: uppercase;
+	font-weight: 600;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+    display: block;
+	border-top: 1px solid rgba(0,0,0,0.05);
+	padding-top: 15px;	
+	font-size: 0.6875rem;
+	letter-spacing: .1em;
+	color: #191918;
+}
+
+.sidebar-title label {
+	padding-top: 15px;
+	border-top: 1px solid rgba(0,0,0,0.6);	
+}
+/* Utility class */
+.rounded {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: block;
+	position: relative;
+	float: left;
+	text-align: center;
+	border-radius: 100%;
+	overflow: hidden;
+	margin-right: 15px;
+	background: #f0f0f0;
+	border: 1px solid rgba(0,0,0,0.05);	
+	width: 40px;
+	height: 40px;  	
+}
+/* User Profile */
+.profile-wrapper {
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	width: 50%;
+	margin: 0 auto;
+	position: absolute;
+	top: 15%; 
+	left: 0; 
+	right: 0;
+	text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+}
+
+.profile-wrapper .image-holder {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 100%;
+	overflow: hidden;
+	background: #f0f0f0;
+	margin: 0px auto;
+	border: 2px solid #fff;		
+	width: 120px;
+	height: 120px; 
+	-webkit-box-shadow: 0px 1px 3px -1px rgba(117,117,116,1);
+	-moz-box-shadow: 0px 1px 3px -1px rgba(117,117,116,1);
+	box-shadow: 0px 1px 3px -1px rgba(117,117,116,1);
+}
+
+.profile-wrapper .user-image {
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+}
+
+.profile-wrapper .user-name {
+	padding: 15px 0 5px 0;
+	display: block;
+	font-weight: 700;
+	color: #191918;
+	font-size: 3rem;
+}
+
+.profile-wrapper .user-bio {
+	font-weight: 300;
+	font-size: 1.125rem;
+	color: rgba(0,0,0,0.8);
+	padding: 0 0 15px 0;
+}
+
+.profile-wrapper .user-meta {
+	list-style: none;
+}
+
+.profile-wrapper .user-meta a {
+	text-decoration: none;
+	color: #191918;
+	-webkit-transition: color 0.5s ease-in-out;
+	   -moz-transition: color 0.5s ease-in-out;
+	        transition: color 0.5s ease-in-out;
+}
+
+.profile-wrapper .user-meta a:hover {
+	color: rgba(0,0,0,0.6);
+}
+
+.profile-wrapper .user-meta span {
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	font-weight: 300;
+	color: rgba(0,0,0,0.6);
+	font-size: 0.75rem;
+}
+
+.profile-wrapper .user-meta li {
+	display: inline-block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 20px;	
+	font-size: 1.5rem;
+	margin: 0;
+}
+
+.profile-wrapper .user-meta li:nth-child(2) {
+	border-left: 1px solid rgba(0,0,0,0.05);		
+	border-right: 1px solid rgba(0,0,0,0.05);		
+}
+
+.profile-contents {
+	position: fixed;
+	top: 75%;
+	left: 0;
+	right: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+    border-top: 1px solid rgba(0,0,0,0.1);
+	min-height: 100%;
+}
+
+.profile-contents .recommended {
+	text-decoration: none;
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	text-transform: uppercase;
+	position: absolute;
+	margin: 0 42%;
+	padding: 2px;
+	display: block;
+	top: -11px; 
+	left: 0; 
+	right: 0;
+	text-align: center;
+	font-weight: 300;
+	color: rgba(0,0,0,0.6);
+	letter-spacing: .3em;
+	font-size: 0.75rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+    border: 1px solid rgba(0,0,0,0.6);
+    background: #fff;
+	-webkit-transition: color 0.5s ease-in-out;
+	   -moz-transition: color 0.5s ease-in-out;
+	        transition: color 0.5s ease-in-out;
+}
+
+.profile-contents .recommended:hover {
+	color: #191918;
 }
 /* Color Palette
    - Almost-black: #191918
