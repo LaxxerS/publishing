@@ -4,6 +4,7 @@ var myBookshelf = require('./base'),
 	bcryptjs    = require('bcryptjs'),
 	nodefn      = require('when/node'),
 	when		= require('when'),
+	Follower	= require('./follower').Follower,
 
 	User;
 
@@ -18,7 +19,28 @@ function generatePasswordHash(password) {
 User = myBookshelf.Model.extend({
 	tableName: 'users',
 
+	following: function() {
+		return this.hasMany(Follower, "follower");
+	},
+
+	follower: function() {
+		return this.hasMany(Follower, "following");
+	}
+
 }, {
+    findAll: function (options) {
+    	options = options || {};
+    	options.withRelated = ['following', 'follower'];
+        return myBookshelf.Model.findAll.call(this, options);
+    },
+
+    findOne: function(args, options) {
+    	options = options || {};
+
+    	options.withRelated = ['following', 'follower'];
+    	return myBookshelf.Model.findOne.call(this, args, options);
+    },
+
 	check: function(_userData) {
 		return this.getByEmail(_userData.email).then(function(user) {
 			return nodefn.call(bcrypt.compare, _userData.password, user.get('password')).then(function(matched) {

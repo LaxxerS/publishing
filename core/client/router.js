@@ -5,8 +5,8 @@
 
 		routes: {
 			'': 'home',
-			'(@:user)/': 'profile',
-			'(@:user)(/:slug)/': 'post',
+			'(@:username)/': 'profile',
+			'(@:username)(/:slug)/': 'post',
 			'(:tab)/': 'home'
 		},
 
@@ -15,11 +15,18 @@
 			App.currentView = new App.Views.Home({ el: '#main', tab: tab });
 		},
 
-		profile: function(user) {
-			App.currentView = new App.Views.Profile({ el: '#main' });
+		profile: function(username) {
+		        var user = new App.Models.User();
+		        user.urlRoot = App.paths.api + '/users/' + username;
+		    	if(username) {
+		    		user.username = username;
+		    		user.fetch().then(function() {
+		    			App.currentView = new App.Views.Profile({ el: '#main', model: user });
+		    		});
+		    	}
 		},
 
-		post: function(user, slug) {
+		post: function(username, slug) {
 			App.currentView = new App.Views.Post({ el: '#main' });
 		}
 	});

@@ -9,6 +9,7 @@
 
         templateData: function () {
             if (this.model) {
+                                console.log(this.model.toJSON());
                 return this.model.toJSON();
             }
 

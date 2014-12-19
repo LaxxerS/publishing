@@ -26,10 +26,6 @@ users = {
 	},
 
 	read: function(args) {
-
-		if(args.id === 'self') {
-			args = {id: 1};
-		}
 		return dataProvider.User.findOne(args).then(function(result) {
         var omitted;
 
