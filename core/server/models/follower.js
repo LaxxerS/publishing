@@ -7,7 +7,7 @@ var myBookshelf = require('./base'),
 	Followers;
 
 Follower = myBookshelf.Model.extend({
-	tableName: 'followers',
+	tableName: 'users_users',
 
 	initialize: function () {
 

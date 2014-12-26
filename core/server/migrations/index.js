@@ -23,8 +23,8 @@ user_2 = {
 }
 
 follow = {
-	"follower": 1,
-	"following": 2
+	"follower_id": 1,
+	"following_id": 2
 }
 
 function PopulateUsers(user) {
@@ -64,11 +64,12 @@ init = function() {
 		}
 	});
 
-	knex.schema.hasTable('followers').then(function(exists) {
+	knex.schema.hasTable('users_users').then(function(exists) {
 		if(!exists) {
-			return knex.schema.createTable('followers', function(t) {
-				t.integer('follower').primary();
-				t.integer('following');
+			return knex.schema.createTable('users_users', function(t) {
+				t.increments('id').primary();
+				t.integer('follower_id').notNullable().references('id').inTable('users');
+				t.integer('following_id').notNullable().references('id').inTable('users');
 				t.timestamps();
 			}).then(function() {
 				return PopulateFollower(follow);
