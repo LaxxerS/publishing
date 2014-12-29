@@ -23,17 +23,21 @@ User = myBookshelf.Model.extend({
 		return this.belongsToMany(User, "users_users", "follower_id", "following_id");
 	},
 
+	follower: function() {
+		return this.belongsToMany(User, "users_users", "following_id", "follower_id");
+	}
+
 }, {
     findAll: function (options) {
     	options = options || {};
-    	options.withRelated = ['following'];
+    	options.withRelated = ['following', 'follower'];
         return myBookshelf.Model.findAll.call(this, options);
     },
 
     findOne: function(args, options) {
     	options = options || {};
 
-    	options.withRelated = ['following'];
+    	options.withRelated = ['following', 'follower'];
     	return myBookshelf.Model.findOne.call(this, args, options);
     },
 

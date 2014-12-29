@@ -5,4 +5,7 @@ module.exports = function(server) {
     server.get('/admin/api/v0.1/users/', api.requestHandler(api.users.browse));
     server.get('/admin/api/v0.1/users/:username/', api.requestHandler(api.users.read));
     server.put('/admin/api/v0.1/users/:username/', api.requestHandler(api.users.edit));
+
+    // ## Post
+    server.get('/admin/api/v0.1/posts/:username/', api.requestHandler(api.posts.browse));
 }

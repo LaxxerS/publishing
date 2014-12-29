@@ -1,0 +1,17 @@
+<section class="latest-contents">
+	<a href="" class="recommended">Latest</a>
+	{{#each []}}
+	<section class="post-wrapper">
+		<article clsss="post-block">
+			<span class="post-title"><a href="/@{{author.username}}/{{slug}}">{{title}}</a></span>
+			<section class="post-content">
+				{{{html}}}
+			</section>
+			<section class="post-footer">
+				<span class="author"><a href="/@{{author.username}}/">{{author.name}}</a></span>
+				<a href="#" class="readtime">9 min read</a>
+			</section>
+		</article>	
+	</section>
+	{{/each}}
+</section>	

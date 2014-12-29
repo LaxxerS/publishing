@@ -1,4 +1,5 @@
 var users = require('./users'),
+    posts = require('./posts'),
 	_	  = require('lodash'),
 	requestHandler;
 
@@ -18,5 +19,6 @@ requestHandler = function (apiMethod) {
 
 module.exports = {
     users: users,
+    posts: posts,
     requestHandler: requestHandler
 };

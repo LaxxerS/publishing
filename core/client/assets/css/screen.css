@@ -285,7 +285,7 @@ html, body {
 	width: 50%;
 	margin: 0 auto;
 	position: absolute;
-	top: 15%; 
+	top: 30%; 
 	left: 0; 
 	right: 0;
 	text-align: center;
@@ -374,19 +374,18 @@ html, body {
 	border-right: 1px solid rgba(0,0,0,0.05);		
 }
 
-.profile-contents {
-	position: fixed;
-	top: 75%;
+.latest-contents {
+	position: absolute;
+	top: 85%;
 	left: 0;
 	right: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;	
-    border-top: 1px solid rgba(0,0,0,0.1);
-	min-height: 100%;
+    border-top: 1px solid rgba(0,0,0,0.05);
 }
 
-.profile-contents .recommended {
+.latest-contents .recommended {
 	text-decoration: none;
 	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	text-transform: uppercase;
@@ -399,20 +398,92 @@ html, body {
 	right: 0;
 	text-align: center;
 	font-weight: 300;
-	color: rgba(0,0,0,0.6);
+	color: rgba(0,0,0,0.8);
 	letter-spacing: .3em;
 	font-size: 0.75rem;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;	
-    border: 1px solid rgba(0,0,0,0.6);
+    border: 1px solid rgba(0,0,0,0.5);
     background: #fff;
 	-webkit-transition: color 0.5s ease-in-out;
 	   -moz-transition: color 0.5s ease-in-out;
 	        transition: color 0.5s ease-in-out;
 }
 
-.profile-contents .recommended:hover {
+.latest-contents .recommended:hover {
+	color: #191918;
+}
+
+.latest-contents .post-wrapper {
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	width: 50%;
+	margin: 50px auto;
+	position: relative;
+	border-bottom: 1px solid rgba(0,0,0,0.05);	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+	display: block;
+	min-height: 120px;
+}
+
+.latest-contents .post-wrapper .post-title a {
+	text-decoration: none;
+	color: rgba(0,0,0,0.8);
+	font-weight: 300;
+	font-size: 1.625rem;
+}
+
+.latest-contents .post-wrapper .post-content {
+	color: rgba(0,0,0,0.6);
+	font-size: 1.125rem;	
+	font-weight: 300;
+}
+
+.latest-contents .post-wrapper .post-footer {
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+.latest-contents .post-wrapper .author a {
+	display: inline-block;
+	padding: 2px 0;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #191918;
+	font-size: 0.75rem;
+	letter-spacing: .1em;
+}
+
+.latest-contents .post-wrapper .readtime {
+	color: rgba(0,0,0,0.4);
+	font-size: 0.8125rem;
+}
+
+.latest-contents .post-wrapper .readtime {
+	text-decoration: none;
+	-webkit-transition: color 0.5s ease-in-out;
+	   -moz-transition: color 0.5s ease-in-out;
+	        transition: color 0.5s ease-in-out;
+}
+
+.latest-contents .post-wrapper .readtime:before {
+	padding: 0 5px 0 8px;
+    text-transform: none;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-family:'FontAwesome';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    content: '\f02e';
+    font-size: 0.6875rem
+}
+
+.latest-contents .post-wrapper .readtime:hover {
 	color: #191918;
 }
 /* Color Palette

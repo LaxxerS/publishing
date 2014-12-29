@@ -9,11 +9,11 @@
 
         templateData: function () {
             if (this.model) {
-                                console.log(this.model.toJSON());
                 return this.model.toJSON();
             }
 
             if (this.collection) {
+                console.log(this.collection.toJSON());
                 return this.collection.toJSON();
             }
 
