@@ -8,4 +8,8 @@ module.exports = function(server) {
 
     // ## Post
     server.get('/admin/api/v0.1/posts/:username/', api.requestHandler(api.posts.browse));
+    server.get('/admin/api/v0.1/posts/:username/:slug/', api.requestHandler(api.posts.read));
+
+    // ## Follower
+    server.post('/admin/api/v0.1/followers/', api.requestHandler(api.followers.add))
 }

@@ -27,7 +27,15 @@
 		},
 
 		post: function(username, slug) {
-			App.currentView = new App.Views.Post({ el: '#main' });
+			var post = new App.Models.Post();
+			post.urlRoot = App.paths.api + '/posts/' + username + '/' + slug;
+			if(slug) {
+				post.slug = slug;
+				post.fetch().then(function() {
+					App.currentView = new App.Views.Post({ el: '#main', model: post });
+				})
+			}
+			
 		}
 	});
 			

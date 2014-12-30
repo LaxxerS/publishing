@@ -2,13 +2,13 @@
 	'use strict';
 
 	var Tabs = {};
-
 	App.Views.Home = App.View.extend({
 
 		templateName: 'home',
 
 
 		events: {
+			'click .sign-in': 'showSignin',
 			'click .nav-tabs-list li': 'changeTab'
 		},
 
@@ -35,6 +35,16 @@
 			});
 		},
 
+		showSignin: function(e) {
+			e.preventDefault();
+			this.$('.modal-wrapper').fadeIn(300).show();
+			$('body').css('overflow','hidden');
+		},
+
+		hideSignin: function(e) {
+			e.preventDefault();
+		},
+		
 		changeTab: function(e) {
 			NProgress.start();
 			e.preventDefault();
@@ -62,6 +72,7 @@
 		
 	});
 	
+
 	App.Views.Sidebar = App.View.extend({
 		templateName: 'home/sidebar',
 

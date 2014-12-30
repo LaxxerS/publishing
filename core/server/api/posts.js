@@ -6,7 +6,6 @@ var dataProvider = require('../models'),
 	posts;
 
 posts = {
-	//# Todo - request handler with req. and res.
 	browse: function(args) {
 			return dataProvider.Post.findAll(args).then(function(result) {
             var i = 0,
@@ -25,12 +24,13 @@ posts = {
 		},
 
 	read: function(args) {
-			return dataProvider.Post.findOne(args).then(function(result) {
+			return dataProvider.Post.findOne( { 'slug': args.slug }).then(function(result) {
             var omitted;
 
             if (result) {
                 omitted = result.toJSON();
                 omitted.author = _.omit(omitted.author, Blacklist);
+
                 return omitted;
             }
                 return new Error('Post not found');

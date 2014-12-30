@@ -16,11 +16,19 @@
 	<div class="user-name">{{name}}</div>
 	<div class="user-bio">{{bio}}</div>
 	<ul class="user-meta">
-		<li><a href="#"><span>following</span>20</a></li>
-		<li><a href="#"><span>follower</span>0</a></li>
+		<li><a href="#" class="following"><span>following</span>20</a></li>
+		<li><a href="#" class="follower"><span>follower</span>0</a></li>
 		<li><a href="http://twitter.com/laxxers"><span>elsewhere</span><i class="fa fa-twitter"></i></a></li>
 	</ul>
 </section>
+
+<div class="modal-wrapper">
+	<a href="" class="close">close [x]</a>
+	{{#each following}}
+	<p>{{name}}</p>
+	<p>{{username}}</p>
+{{/each}}
+</div>
 
 <section class="profile-contents">
 </section>

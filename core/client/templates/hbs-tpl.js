@@ -6,7 +6,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<header class=\"navbar\">\r\n	<nav class=\"nav-menu\">\r\n		<a href=\"/\">Publishing &mdash; &hearts;</a>\r\n		<nav class=\"nav-tabs\">\r\n			<ul class=\"nav-tabs-list\">\r\n				<li><a href=\"#\">home</a></li>\r\n				<li><a href=\"#top-stories\">top stories</a></li>\r\n				<li><a href=\"#bookmarks\">bookmarks</a></li>\r\n			</ul>\r\n		</nav>\r\n		<ul class=\"nav-buttons\">\r\n			<li><a href=\"/@laxxers/\" style=\"background-image: url(/shared/img/profile.JPG);\"></a></li>\r\n			<li><a href=\"\"></a></li>\r\n			<li><a href=\"\"></a></li>\r\n		</ul>\r\n	</nav>\r\n</header>\r\n\r\n\r\n\r\n<section class=\"main-contents\">\r\n\r\n</section>\r\n\r\n<aside class=\"sidebar\">\r\n	\r\n</aside>";
+  return "<header class=\"navbar\">\r\n	<nav class=\"nav-menu\">\r\n		<a href=\"/\">Publishing &mdash; &hearts;</a>\r\n		<nav class=\"nav-tabs\">\r\n			<ul class=\"nav-tabs-list\">\r\n				<li><a href=\"#\">home</a></li>\r\n				<li><a href=\"#top-stories\">top stories</a></li>\r\n				<li><a href=\"#bookmarks\">bookmarks</a></li>\r\n			</ul>\r\n		</nav>\r\n		<ul class=\"nav-buttons\">\r\n			<li><a href=\"/@laxxers/\" style=\"background-image: url(/shared/img/profile.JPG);\"></a></li>\r\n			<li><a href=\"\" class=\"sign-in\"></a></li>\r\n			<li><a href=\"\"></a></li>\r\n		</ul>\r\n	</nav>\r\n</header>\r\n\r\n\r\n<div class=\"modal-wrapper\">\r\n	<a href=\"\" class=\"close\">close [x]</a>\r\n</div>\r\n\r\n<section class=\"main-contents\">\r\n\r\n</section>\r\n\r\n<aside class=\"sidebar\">\r\n	\r\n</aside>";
   });
 
 this["JST"]["home/bookmarks"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -45,20 +45,52 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<section class=\"contents-wrapper\">\r\n	<article clsss=\"post-block\">\r\n		<span class=\"post-title\"><a href=\"#\">This Is How You Write a Memoir</a></span>\r\n		<section class=\"post-content\">\r\n			\"I'm not advocating happy endings; I'm advocating well-built stories.\"\r\n		</section>\r\n		<section class=\"post-footer\">\r\n			<div class=\"rounded\">\r\n				<div class=\"user-image\" style=\"background-image: url(/shared/img/profile.JPG);\"></div>\r\n			</div>\r\n				<span class=\"author\"><a href=\"/@laxxers/\">Chong Zhi Rui</a></span>\r\n				<span class=\"time\">1d ago</span>\r\n				<a href=\"#\" class=\"readtime\">9 min read</a>\r\n		</section>\r\n	</article>	\r\n</section>\r\n";
   });
 
-this["JST"]["post"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["JST"]["modal/signin"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<header class=\"navbar\">\r\n	<nav class=\"nav-menu\">\r\n		<a href=\"/\">Publishing &mdash; &hearts;</a>\r\n		<ul class=\"nav-buttons\">\r\n			<li><a href=\"/@laxxers/\" style=\"background-image: url(/shared/img/profile.JPG);\"></a></li>\r\n			<li><a href=\"\"></a></li>\r\n			<li><a href=\"\"></a></li>\r\n		</ul>\r\n	</nav>\r\n</header>\r\n\r\n<p>Not to be too Tale of Two Cities about it, but I find writing a memoir easier than writing fiction, and more difficult.\r\n\r\nWhy is it easier? You don’t have to make stuff up, which is hard work. You don’t have to run your characters/plot/milieu/ending through a stress test that’ll determine whether it makes sense. That is to say, of course it makes sense. It happened to you.\r\n\r\nWhat makes writing a memoir difficult is harder to quantify. Is it learning to know when you’re ready to talk about something? Is it seeing the structure in a lumpen mass of fact? Is it finding out what you were really like, as other people saw you? Yes, to each.\r\n\r\nThere are ways to make it all easier.\r\n\r\n“Don’t write to settle scores, or to prove something in some debate.”\r\nBe truthful. Don’t write to settle scores, or to prove something in some debate. In the worst memoirs, you can feel the author justifying himself — forgiving himself — in every paragraph. In the best memoirs, the author is tougher on his or herself than his or her readers will ever be.\r\n\r\nHow do you shed the self-protection that, like a warranty, comes home with us all once we leave the new-baby ward?\r\n\r\nWell, the details of your story will be perspective-wreckingly close; you’ll have to develop a plan to increase that distance. Here’s what I suggest: Change your narrator from “I” to “he” or “she.” Write the whole thing in third person, and then — after typing your final period — do a word-replace to get yourself back in there. You’ll be amazed at how freeing that is.\r\n\r\nTry to think of the story as a novel. I don’t mean that you should feel free to invent stuff. I’m very strict in my belief that non-fiction should be truthful and fiction is for invented narratives.\r\n\r\nDon’t forget that you have a story to tell. Biopics are bad when they suggest every story begins at birth and ends at death. This is not necessarily the case. Some people’s best stories might happen over the span of a year, an hour, a decade. Decide.\r\n\r\n“Biopics are bad when they suggest every story begins at birth and ends at death.”\r\nNovelist and screenwriter Helen Schulman teaches to ask of your story a version of what Jews ask on the Passover holiday: Why is this day different from all other days? In other words, what makes one day story-worthy, and one day not? Spielberg’s Lincoln is a good biopic because it dramatizes a specific, narratively shapely episode in Abe Lincoln’s life and sets out to tell just that story.\r\n\r\nBack to your memoir. Think: What is the conflict here? What does my character (e.g., you) want? What is this character’s desire? Does the character get what s/he wants in the end? How do I get the character to the end of the story in the most artful, satisfying way? I’m not advocating happy endings; I’m advocating well-built stories.</p>";
+  return "<div class=\"modal-wrapper\">\r\n	sign in\r\n</div>";
+  });
+
+this["JST"]["post"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<header class=\"navbar\">\r\n	<nav class=\"nav-menu\">\r\n		<a href=\"/\">Publishing &mdash; &hearts;</a>\r\n		<ul class=\"nav-buttons\">\r\n			<li><a href=\"/@laxxers/\" style=\"background-image: url(/shared/img/profile.JPG);\"></a></li>\r\n			<li><a href=\"\"></a></li>\r\n			<li><a href=\"\"></a></li>\r\n		</ul>\r\n	</nav>\r\n</header>\r\n\r\n<h2>";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h2>\r\n<p>";
+  if (helper = helpers.html) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.html); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</p>";
+  return buffer;
   });
 
 this["JST"]["profile"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n	<p>";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n	<p>";
+  if (helper = helpers.username) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.username); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</p>\r\n";
+  return buffer;
+  }
 
   buffer += "<header class=\"navbar\">\r\n	<nav class=\"nav-menu\">\r\n		<a href=\"/\">Publishing &mdash; &hearts;</a>\r\n		<ul class=\"nav-buttons\">\r\n			<li><a href=\"/@";
   if (helper = helpers.username) { stack1 = helper.call(depth0, {hash:{},data:data}); }
@@ -72,7 +104,10 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (helper = helpers.bio) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.bio); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</div>\r\n	<ul class=\"user-meta\">\r\n		<li><a href=\"#\"><span>following</span>20</a></li>\r\n		<li><a href=\"#\"><span>follower</span>0</a></li>\r\n		<li><a href=\"http://twitter.com/laxxers\"><span>elsewhere</span><i class=\"fa fa-twitter\"></i></a></li>\r\n	</ul>\r\n</section>\r\n\r\n<section class=\"profile-contents\">\r\n</section>\r\n\r\n";
+    + "</div>\r\n	<ul class=\"user-meta\">\r\n		<li><a href=\"#\" class=\"following\"><span>following</span>20</a></li>\r\n		<li><a href=\"#\" class=\"follower\"><span>follower</span>0</a></li>\r\n		<li><a href=\"http://twitter.com/laxxers\"><span>elsewhere</span><i class=\"fa fa-twitter\"></i></a></li>\r\n	</ul>\r\n</section>\r\n\r\n<div class=\"modal-wrapper\">\r\n	<a href=\"\" class=\"close\">close [x]</a>\r\n	";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.following), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n</div>\r\n\r\n<section class=\"profile-contents\">\r\n</section>\r\n\r\n";
   return buffer;
   });
 

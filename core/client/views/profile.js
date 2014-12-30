@@ -7,6 +7,11 @@
 
 		templateName: 'profile',
 
+		events: {
+			'click .following': 'showFollowing',
+			'click .close': 'hideFollowing'
+		},
+
 		initialize: function() {
 			this.render();
 
@@ -16,6 +21,16 @@
 				new Latest({ el: '.profile-contents', collection: posts }).render().el;
 			});
 			
+		},
+
+		showFollowing: function(e) {
+			e.preventDefault();
+			this.$('.modal-wrapper').fadeIn(300).show();
+			$('body').css('overflow','hidden');
+		},
+
+		hideFollowing: function(e) {
+			preventDefault();
 		}
 		
 	});
