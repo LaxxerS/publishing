@@ -1,7 +1,9 @@
 (function() {
 	'use strict';
 
-	var Tabs = {};
+	var Tabs = {},
+		Partial;
+
 	App.Views.Home = App.View.extend({
 
 		templateName: 'home',
@@ -9,7 +11,7 @@
 
 		events: {
 			'click .sign-in': 'showSignin',
-			'click .nav-tabs-list li': 'changeTab'
+			'click .nav-tabs-list li': 'changeTab',
 		},
 
 		initialize: function() {
@@ -32,6 +34,11 @@
 
 			this.sidebar = new App.Views.Sidebar({
 				el: '.sidebar'
+			});
+
+			var user = new App.Models.Session();
+			user.fetch().then(function() {
+				this.partial = new Partial({ el: '.navbar', model: user });
 			});
 		},
 
@@ -72,6 +79,13 @@
 		
 	});
 	
+	Partial = App.View.extend({
+		templateName: 'partial/nav-menu-buttons',
+
+		initialize: function() {
+			this.render();
+		}
+	});
 
 	App.Views.Sidebar = App.View.extend({
 		templateName: 'home/sidebar',

@@ -13,7 +13,6 @@
             }
 
             if (this.collection) {
-                console.log(this.collection.toJSON());
                 return this.collection.toJSON();
             }
 

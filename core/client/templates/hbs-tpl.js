@@ -6,7 +6,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<header class=\"navbar\">\r\n	<nav class=\"nav-menu\">\r\n		<a href=\"/\">Publishing &mdash; &hearts;</a>\r\n		<nav class=\"nav-tabs\">\r\n			<ul class=\"nav-tabs-list\">\r\n				<li><a href=\"#\">home</a></li>\r\n				<li><a href=\"#top-stories\">top stories</a></li>\r\n				<li><a href=\"#bookmarks\">bookmarks</a></li>\r\n			</ul>\r\n		</nav>\r\n		<ul class=\"nav-buttons\">\r\n			<li><a href=\"/@laxxers/\" style=\"background-image: url(/shared/img/profile.JPG);\"></a></li>\r\n			<li><a href=\"\" class=\"sign-in\"></a></li>\r\n			<li><a href=\"\"></a></li>\r\n		</ul>\r\n	</nav>\r\n</header>\r\n\r\n\r\n<div class=\"modal-wrapper\">\r\n	<a href=\"\" class=\"close\">close [x]</a>\r\n</div>\r\n\r\n<section class=\"main-contents\">\r\n\r\n</section>\r\n\r\n<aside class=\"sidebar\">\r\n	\r\n</aside>";
+  return "<header class=\"navbar\">\r\n\r\n</header>\r\n\r\n<div class=\"modal-wrapper\">\r\n	<a href=\"\" class=\"close\">close [x]</a>\r\n	<div class=\"login-form\">\r\n		<span class=\"title\">Sign in</span>\r\n		<form method=\"post\" action=\"/login/\">\r\n			<input type=\"email\" class=\"login-mail\" name=\"email\" placeholder=\"Email\" autocapitalize=\"off\" autocomplete=\"off\" spellcheck=\"false\" required autofocus>\r\n			<input type=\"password\" class=\"login-password\" name=\"password\" placeholder=\"Password\" required>\r\n			<input type=\"submit\" class=\"login-submit\" value=\"Sign In\">\r\n		</form>\r\n	</div>\r\n\r\n</div>\r\n\r\n<section class=\"main-contents\">\r\n\r\n</section>\r\n\r\n<aside class=\"sidebar\">\r\n	\r\n</aside>";
   });
 
 this["JST"]["home/bookmarks"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -45,13 +45,33 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<section class=\"contents-wrapper\">\r\n	<article clsss=\"post-block\">\r\n		<span class=\"post-title\"><a href=\"#\">This Is How You Write a Memoir</a></span>\r\n		<section class=\"post-content\">\r\n			\"I'm not advocating happy endings; I'm advocating well-built stories.\"\r\n		</section>\r\n		<section class=\"post-footer\">\r\n			<div class=\"rounded\">\r\n				<div class=\"user-image\" style=\"background-image: url(/shared/img/profile.JPG);\"></div>\r\n			</div>\r\n				<span class=\"author\"><a href=\"/@laxxers/\">Chong Zhi Rui</a></span>\r\n				<span class=\"time\">1d ago</span>\r\n				<a href=\"#\" class=\"readtime\">9 min read</a>\r\n		</section>\r\n	</article>	\r\n</section>\r\n";
   });
 
-this["JST"]["modal/signin"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["JST"]["partial/nav-menu-buttons"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
   
+  var buffer = "", stack1, helper;
+  buffer += "\r\n		<li class=\"button-profile\"><a href=\"/@";
+  if (helper = helpers.username) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.username); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "/\" style=\"background-image: url(/shared/img/profile.JPG);\"></a></li>\r\n		<li class=\"button-logout\"><a href=\"/\"><i class=\"fa fa-lock\"></i></a></li>\r\n		";
+  return buffer;
+  }
 
+function program3(depth0,data) {
+  
+  
+  return "\r\n		<li class=\"button-sign\"><a href=\"\" class=\"sign-in\">Sign in / Sign up</a></li>\r\n		";
+  }
 
-  return "<div class=\"modal-wrapper\">\r\n	sign in\r\n</div>";
+  buffer += "\r\n<nav class=\"nav-menu\">\r\n	<a href=\"/\">Publishing &mdash; &hearts;</a>\r\n	<nav class=\"nav-tabs\">\r\n		<ul class=\"nav-tabs-list\">\r\n			<li><a href=\"#\">home</a></li>\r\n			<li><a href=\"#top-stories\">top stories</a></li>\r\n			<li><a href=\"#bookmarks\">bookmarks</a></li>\r\n		</ul>\r\n	</nav>\r\n	<ul class=\"nav-buttons\">\r\n		";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.id), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n	</ul>\r\n</nav>\r\n";
+  return buffer;
   });
 
 this["JST"]["post"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -80,15 +100,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\r\n	<p>";
+  buffer += "\r\n		<p>";
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</p>\r\n	<p>";
+    + "</p>\r\n		<p>";
   if (helper = helpers.username) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.username); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</p>\r\n";
+    + "</p>\r\n	";
   return buffer;
   }
 
@@ -104,11 +124,33 @@ function program1(depth0,data) {
   if (helper = helpers.bio) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.bio); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</div>\r\n	<ul class=\"user-meta\">\r\n		<li><a href=\"#\" class=\"following\"><span>following</span>20</a></li>\r\n		<li><a href=\"#\" class=\"follower\"><span>follower</span>0</a></li>\r\n		<li><a href=\"http://twitter.com/laxxers\"><span>elsewhere</span><i class=\"fa fa-twitter\"></i></a></li>\r\n	</ul>\r\n</section>\r\n\r\n<div class=\"modal-wrapper\">\r\n	<a href=\"\" class=\"close\">close [x]</a>\r\n	";
+    + "</div>\r\n	<ul class=\"user-meta\">\r\n		<li><a href=\"#\" class=\"following\"><span>following</span>20</a></li>\r\n		<li><a href=\"#\" class=\"follower\"><span>follower</span>0</a></li>\r\n		<li><a href=\"http://twitter.com/laxxers\"><span>elsewhere</span><i class=\"fa fa-twitter\"></i></a></li>\r\n	</ul>\r\n\r\n	<section class=\"profile-follow-wrapper\">\r\n		<input type=\"hidden\" class=\"follow_id\" name=\"follow_id\" value=";
+  if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + ">\r\n		<section class=\"profile-follow\">\r\n			\r\n		</section>\r\n	</section>\r\n\r\n</section>\r\n\r\n<div class=\"modal-wrapper\">\r\n	<a href=\"\" class=\"close\">close [x]</a>\r\n	";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.following), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\r\n</div>\r\n\r\n<section class=\"profile-contents\">\r\n</section>\r\n\r\n";
   return buffer;
+  });
+
+this["JST"]["profile/profile-follow"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<button class=\"button-follow\">Follow</button>";
+  });
+
+this["JST"]["profile/profile-following"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<button class=\"button-unfollow\">Following</button>";
   });
 
 this["JST"]["profile/profile-latest"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

@@ -13,7 +13,6 @@ requestHandler = function (apiMethod) {
 
         return apiMethod.call(apiContext, options).then(function (result) {
             res.json(result || {});
-            
         });
     };
 };

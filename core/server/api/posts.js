@@ -17,8 +17,6 @@ posts = {
             
             omitted = _.filter(omitted, { 'author': { username: args.username }});
 
-            console.log(args.username);
-            console.log(omitted);
             return _.sortBy(omitted, 'updated_at').reverse();
 			});
 		},

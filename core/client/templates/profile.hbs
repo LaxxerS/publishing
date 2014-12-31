@@ -20,14 +20,22 @@
 		<li><a href="#" class="follower"><span>follower</span>0</a></li>
 		<li><a href="http://twitter.com/laxxers"><span>elsewhere</span><i class="fa fa-twitter"></i></a></li>
 	</ul>
+
+	<section class="profile-follow-wrapper">
+		<input type="hidden" class="follow_id" name="follow_id" value={{id}}>
+		<section class="profile-follow">
+			
+		</section>
+	</section>
+
 </section>
 
 <div class="modal-wrapper">
 	<a href="" class="close">close [x]</a>
 	{{#each following}}
-	<p>{{name}}</p>
-	<p>{{username}}</p>
-{{/each}}
+		<p>{{name}}</p>
+		<p>{{username}}</p>
+	{{/each}}
 </div>
 
 <section class="profile-contents">

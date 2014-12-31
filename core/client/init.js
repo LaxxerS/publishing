@@ -14,6 +14,7 @@
 		Views		: {},
 		Collections	: {},
 		Models		: {},
+		Session     : {},
 
 		paths: AppPaths(),
 		router: null

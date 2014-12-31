@@ -1,24 +1,18 @@
 <header class="navbar">
-	<nav class="nav-menu">
-		<a href="/">Publishing &mdash; &hearts;</a>
-		<nav class="nav-tabs">
-			<ul class="nav-tabs-list">
-				<li><a href="#">home</a></li>
-				<li><a href="#top-stories">top stories</a></li>
-				<li><a href="#bookmarks">bookmarks</a></li>
-			</ul>
-		</nav>
-		<ul class="nav-buttons">
-			<li><a href="/@laxxers/" style="background-image: url(/shared/img/profile.JPG);"></a></li>
-			<li><a href="" class="sign-in"></a></li>
-			<li><a href=""></a></li>
-		</ul>
-	</nav>
-</header>
 
+</header>
 
 <div class="modal-wrapper">
 	<a href="" class="close">close [x]</a>
+	<div class="login-form">
+		<span class="title">Sign in</span>
+		<form method="post" action="/login/">
+			<input type="email" class="login-mail" name="email" placeholder="Email" autocapitalize="off" autocomplete="off" spellcheck="false" required autofocus>
+			<input type="password" class="login-password" name="password" placeholder="Password" required>
+			<input type="submit" class="login-submit" value="Sign In">
+		</form>
+	</div>
+
 </div>
 
 <section class="main-contents">

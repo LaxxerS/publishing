@@ -1,4 +1,5 @@
-var when 	   = require('when'),
+var middleware = require('./middleware'),
+	when 	   = require('when'),
 	url        = require('url'),
 	path 	   = require('path'),
 	hbs	       = require('express-hbs'),
@@ -24,3 +25,5 @@ module.exports = function(server) {
 
 	expressServer.use(slashes(true, {headers: {'Cache-Control': 'public, max-age=' + ONE_YEAR_S}}));
 }
+
+module.exports.middleware = middleware;
