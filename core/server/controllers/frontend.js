@@ -6,7 +6,6 @@ var api    = require('../api'),
 
 frontendControllers = {
 	homepage: function(req, res) {
-			console.log(sessionCache);
 			if(sessionCache) {
 				res.render('default', { session: sessionCache });
 			} else {
@@ -25,10 +24,12 @@ frontendControllers = {
 				if(!error) {
 					req.session.user = user.id;
 					return api.users.read({id: req.session.user}).then(function(user) {
-						sessionCache = user;
-						res.redirect(301, '/');
+						if(user) {
+							sessionCache = user;
+							res.redirect(301, '/');
+						}
+							
 					});
-					
 				}
 			});
 		}, function(error) {
@@ -38,14 +39,15 @@ frontendControllers = {
 	},
 
 	getSession: function(req, res) {
-		var session = sessionCache;
-		if(sessionCache) {
-			res.json(sessionCache);
-		} else {
-			res.json({});
-		}
-	}
+		return api.users.read({id: req.session.user}).then(function(user) {
+			if(user) {
+				sessionCache = user;
+				res.json(user);
+			} else {
+				res.json({});
+			}
+		});
+	},
 }
 
 module.exports = frontendControllers;
-module.exports.sessionCache = sessionCache;

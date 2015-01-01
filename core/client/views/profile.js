@@ -61,17 +61,55 @@
 		},
 
 		follow: function() {
-			var follow_id = $('input[name=follow_id]').val()
-			alert(follow_id);
+			var currentUser = this.model.get('id'),
+			    follow_id   = $('input[name=follow_id]').val(),
+			    followHandler;
+
+			    NProgress.start();
+				followHandler = new App.Models.Follower();
+				followHandler.save({
+					follower_id: currentUser,
+					following_id: follow_id
+				}).then(function() {
+					NProgress.done();
+				    Backbone.history.loadUrl();
+				    return false;	
+				});
+			
 		},
 
-		unfollow: function() {
-
-		}
 	});
 
 	Button.unfollow = App.View.extend({
 		templateName: 'profile/profile-following',
+
+		events: {
+			'click .button-unfollow': 'unfollow'
+		},
+
+		unfollow: function() {
+			var self = this,
+			    currentUser = self.model.get('id'),
+			    follow_id   = $('input[name=follow_id]').val(),
+			    followHandler,
+			    _id;
+
+			   
+			   	NProgress.start();
+				followHandler = new App.Models.Follower();
+				followHandler.url = App.paths.api + '/followers/' + currentUser + '/' + follow_id + '/'; 
+				followHandler.fetch().then(function(result) {
+					_id = result.id;
+				}).then(function() {
+					followHandler.url = App.paths.api + '/followers/' + _id + '/'; 
+					followHandler.destroy({id: _id}).then(function() {
+						NProgress.done();
+					}).then(function() {
+					    Backbone.history.loadUrl();
+					    return false;					
+					})
+				});
+		}
 
 	})
 

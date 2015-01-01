@@ -16,8 +16,8 @@
 	<div class="user-name">{{name}}</div>
 	<div class="user-bio">{{bio}}</div>
 	<ul class="user-meta">
-		<li><a href="#" class="following"><span>following</span>20</a></li>
-		<li><a href="#" class="follower"><span>follower</span>0</a></li>
+		<li><a href="#" class="following"><span>following</span>{{following.length}}</a></li>
+		<li><a href="#" class="follower"><span>follower</span>{{follower.length}}</a></li>
 		<li><a href="http://twitter.com/laxxers"><span>elsewhere</span><i class="fa fa-twitter"></i></a></li>
 	</ul>
 
@@ -32,10 +32,21 @@
 
 <div class="modal-wrapper">
 	<a href="" class="close">close [x]</a>
-	{{#each following}}
-		<p>{{name}}</p>
-		<p>{{username}}</p>
-	{{/each}}
+	<div class="following-wrapper">
+
+		<div class="name-follow">{{name}} follows</div>
+		{{#each following}}
+		<div class="follow-block">
+			<div class="rounded">
+				<div class="user-image" style="background-image: url(/shared/img/profile.JPG);"></div>
+			</div>
+			<div class="name"><a href="/@{{username}}/">{{name}}</a></div>
+			<div class="username"><a href="/@{{username}}/">@{{username}}</a></div>
+			<div class="bio">{{bio}}</div>
+			
+		</div>
+	    {{/each}}
+	</div>
 </div>
 
 <section class="profile-contents">

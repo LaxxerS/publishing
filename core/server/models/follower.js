@@ -20,6 +20,13 @@ Follower = myBookshelf.Model.extend({
         return myBookshelf.Model.add.call(this, newData);
     },
 
+    destroy: function(_id, options) {
+        options = options || {};
+
+        return this.forge({id: _id}).fetch().then(function(follow) {
+            return follow.destroy(options);
+        });
+    }
 });
 
 Followers = myBookshelf.Collection.extend({

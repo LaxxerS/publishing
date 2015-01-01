@@ -17,7 +17,7 @@
 		initialize: function() {
 			NProgress.start();
 			this.render();
-			this.menu = this.$('.nav-tabs');
+			this.menu = this.$('.nav-tabs-list');
 			this.menu.find('li').removeClass('active');
 
 			var target = window.location.pathname.split( '/' )[1];
