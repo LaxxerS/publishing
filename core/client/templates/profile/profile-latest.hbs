@@ -1,5 +1,7 @@
-<section class="latest-contents">
-	<a href="" class="recommended">Latest</a>
+{{#if []}}
+
+<section class="block-contents">
+	<a href="" class="label">Latest</a>
 	{{#each []}}
 	<section class="post-wrapper">
 		<article clsss="post-block">
@@ -15,3 +17,9 @@
 	</section>
 	{{/each}}
 </section>	
+{{else}}
+	<p>Hasn’t written any stories yet..</p>
+{{/if}}
+<section class="profile-collection">
+	
+</section>

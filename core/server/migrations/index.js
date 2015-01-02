@@ -2,6 +2,7 @@ var knex 	 = require('../models/base').knex,
 	User 	 = require('../models/user').User,
 	Follower = require('../models/follower').Follower,
 	Post = require('../models/post').Post,
+	Collection = require('../models/collection').Collection,
 
 	user_1,
 	user_2,
@@ -40,6 +41,25 @@ post_1 = {
 	"status":           "published"
 }
 
+post_2 = {
+	"title": "POST 2",
+	"markdown": "This is post 2",
+	"image": null,
+	"status":           "published"
+}
+
+collection_1 = {
+	"title": "My Collection",
+	"description": "Just my test collection",
+	"editor_id" : 1
+}
+
+collection_2 = {
+	"title": "Techno Geek",
+	"description": "All about techs.",
+	"editor_id" : 1
+}
+
 function PopulateUsers(user) {
 	return User.add(user).then(function(user) {
 		console.log("userdone");
@@ -56,6 +76,12 @@ function PopulatePost(post) {
 	return Post.add(post).then(function() {
 		console.log("postdone");
 	});
+}
+
+function PopulateCollection(collection) {
+	return Collection.add(collection).then(function() {
+		console.log("collectiondone");
+	})
 }
 
 init = function() {
@@ -95,11 +121,12 @@ init = function() {
 				t.text('image', 2000).nullable();
 				t.string('status', 150);
 				t.integer('author_id');
-				t.integer('collection_id');
 				t.timestamps(); 
 			}).then(function() {
 				return PopulatePost(post_1);
-			});
+			}).then(function() {
+				return PopulatePost(post_2);
+			})
 		}
 	});
 
@@ -115,6 +142,25 @@ init = function() {
 				return PopulateFollower(follow);
 			}).then(function() {
 				return PopulateFollower(follow2);
+			})
+		}
+	});
+
+	knex.schema.hasTable('collections').then(function(exists) {
+		if(!exists) {
+			return knex.schema.createTable('collections', function(t) {
+				t.increments('id').primary();
+				t.string('uuid', 36);
+				t.string('title', 150);
+				t.string('slug', 150);
+				t.string('description', 150);
+				t.string('cover', 150);
+				t.integer('editor_id');
+				t.timestamps(); 
+			}).then(function() {
+				return PopulateCollection(collection_1);
+			}).then(function() {
+				return PopulateCollection(collection_2);
 			})
 		}
 	});

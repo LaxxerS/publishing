@@ -14,4 +14,8 @@ module.exports = function(server) {
     server.get('/admin/api/v0.1/followers/:follower_id/:following_id/', api.requestHandler(api.followers.read));
     server.post('/admin/api/v0.1/followers/', api.requestHandler(api.followers.add));
     server.delete('/admin/api/v0.1/followers/:id/', api.requestHandler(api.followers.destroy));
+
+    // ## Collection
+    server.get('/admin/api/v0.1/collections/all/:username/', api.requestHandler(api.collections.browse));
+    server.get('/admin/api/v0.1/collections/:slug/', api.requestHandler(api.collections.read));
 }

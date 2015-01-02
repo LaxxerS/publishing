@@ -5,6 +5,11 @@ html, body {
 	height: 100%;
 }
 
+#main {
+	height: 100%;
+	width: 100%;
+}
+
 .navbar {
 	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	font-weight: 700;
@@ -40,6 +45,7 @@ html, body {
 	top: 10px;
 	list-style: none;
 	margin: 0;
+	display: inline-block;
 }
 
 .nav-buttons .button-sign {
@@ -342,10 +348,34 @@ html, body {
 	width: 40px;
 	height: 40px;  	
 }
+
+.inner {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.vertical {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.overlay { 
+  position: absolute; 
+  top:0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background: #303538; 
+  opacity: .3; 
+  z-index: 1;
+} 
+
 /* User Profile */
 .profile-wrapper {
 	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-	width: 50%;
+	width: 100%;
 	margin: 0 auto;
 	position: absolute;
 	top: 30%; 
@@ -482,18 +512,22 @@ html, body {
 	outline: none;
 }
 
-.latest-contents {
+.profile-contents {
 	position: absolute;
 	top: 100%;
-	left: 0;
-	right: 0;
+}
+
+.block-contents {
+	position: relative;
+	top: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;	
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(0,0,0,0.1);
+    display: block;
 }
 
-.latest-contents .recommended {
+.block-contents .label {
 	text-decoration: none;
 	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	text-transform: uppercase;
@@ -519,16 +553,16 @@ html, body {
 	        transition: color 0.5s ease-in-out;
 }
 
-.latest-contents .recommended:hover {
+.block-contents .label:hover {
 	color: #191918;
 }
 
-.latest-contents .post-wrapper {
+.block-contents .post-wrapper {
 	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	width: 50%;
 	margin: 50px auto;
 	position: relative;
-	border-bottom: 1px solid rgba(0,0,0,0.05);	
+	border-bottom: 1px solid rgba(0,0,0,0.1);	
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;	
@@ -536,25 +570,29 @@ html, body {
 	min-height: 120px;
 }
 
-.latest-contents .post-wrapper .post-title a {
+.block-contents .post-wrapper:last-child {
+	border: none;
+}
+
+.block-contents .post-wrapper .post-title a {
 	text-decoration: none;
 	color: rgba(0,0,0,0.75);
 	font-weight: 300;
 	font-size: 1.625rem;
 }
 
-.latest-contents .post-wrapper .post-content {
+.block-contents .post-wrapper .post-content {
 	color: rgba(0,0,0,0.6);
 	font-size: 1.125rem;	
 	font-weight: 300;
 }
 
-.latest-contents .post-wrapper .post-footer {
+.block-contents .post-wrapper .post-footer {
 	padding-top: 20px;
 	padding-bottom: 40px;
 }
 
-.latest-contents .post-wrapper .author a {
+.block-contents .post-wrapper .author a {
 	display: inline-block;
 	padding: 2px 0;
 	text-transform: uppercase;
@@ -564,19 +602,19 @@ html, body {
 	letter-spacing: .1em;
 }
 
-.latest-contents .post-wrapper .readtime {
+.block-contents .post-wrapper .readtime {
 	color: rgba(0,0,0,0.4);
 	font-size: 0.8125rem;
 }
 
-.latest-contents .post-wrapper .readtime {
+.block-contents .post-wrapper .readtime {
 	text-decoration: none;
 	-webkit-transition: color 0.5s ease-in-out;
 	   -moz-transition: color 0.5s ease-in-out;
 	        transition: color 0.5s ease-in-out;
 }
 
-.latest-contents .post-wrapper .readtime:before {
+.block-contents .post-wrapper .readtime:before {
 	padding: 0 5px 0 8px;
     text-transform: none;
     speak: none;
@@ -591,8 +629,149 @@ html, body {
     font-size: 0.6875rem
 }
 
-.latest-contents .post-wrapper .readtime:hover {
+.block-contents .post-wrapper .readtime:hover {
 	color: rgba(0,0,0,0.75);
+}
+
+.collection-wrapper {
+	width: 75%;
+	margin: 50px auto;
+}
+
+.collection-wrapper .collection-block {
+	height: 250px;
+	width: 300px;
+	text-align: center;
+	background: rgba(0,0,0,0.8);
+	border-radius: 5px;
+	overflow: hidden;
+	display: inline-block;
+	margin: 10px;
+}
+
+.collection-wrapper .collection-block .darker {
+	width: 100%;
+	height: 100%;
+	padding-top: 150px;
+	display: block;
+	/* generated overlay */
+	background: -moz-linear-gradient(top,  rgba(69,72,77,0.05) 0%, rgba(68,71,75,0.05) 2%, rgba(0,0,0,0.64) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(69,72,77,0.05)), color-stop(2%,rgba(68,71,75,0.05)), color-stop(100%,rgba(0,0,0,0.64))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(69,72,77,0.05) 0%,rgba(68,71,75,0.05) 2%,rgba(0,0,0,0.64) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(69,72,77,0.05) 0%,rgba(68,71,75,0.05) 2%,rgba(0,0,0,0.64) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(69,72,77,0.05) 0%,rgba(68,71,75,0.05) 2%,rgba(0,0,0,0.64) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(69,72,77,0.05) 0%,rgba(68,71,75,0.05) 2%,rgba(0,0,0,0.64) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d45484d', endColorstr='#a3000000',GradientType=0 ); /* IE6-9 */
+}
+
+.collection-wrapper .collection-block a {
+	text-decoration: none;
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 600;
+	font-size: 1.25rem;
+	color: #fff;
+	width: 100%;
+	height: 100%;
+	display: block;
+	text-align: bottom;
+	background-size: cover;
+	background-position: center;
+}
+
+/* Single collection page */
+.collection-menu {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 300;
+	height: 60px;
+	background-color: transparent;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(25%, white), color-stop(100%, rgba(255, 255, 255, 0.9)));
+	background-image: -webkit-linear-gradient(top, white 0%, white 25%, rgba(255, 255, 255, 0.9) 100%);
+	background-image: linear-gradient(to bottom,white 0%, white 25%, rgba(255, 255, 255, 0.9) 100%);
+	font-size: 0.875rem;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	position: absolute;
+	width: 100%;
+	z-index: 1000;	
+}
+
+.collection-menu .back {
+	text-decoration: none;
+	display: inline-block;
+	padding-left: 20px;
+	width: 40px;
+	color: rgba(0,0,0,0.95);
+}
+
+.collection-menu .collection-editor {
+	display: inline-block;
+	padding: 22px 0;
+	color: rgba(0,0,0,0.45);
+}
+
+.collection-menu .collection-buttons {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 300;
+	font-size: 0.875rem;
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	list-style: none;
+	margin: 0;
+	display: inline-block;
+}
+
+.collection-menu .collection-buttons .button-profile {
+	margin: 0;
+	display: inline-block;
+	margin-left: 3px;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 100%;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid rgba(0,0,0,0.05);	
+	width: 40px;
+	height: 40px; 
+}
+
+.collection-menu .collection-buttons .button-profile a {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+}
+
+.collection-header {
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	position: relative;
+	display: table;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: #fff;
+	background: #303538 no-repeat center center;
+	background-size: cover;
+}
+
+.collection-header-content {
+  z-index: 1000;
+}
+
+.collection-title {
+	display: block;
+	font-weight: 700;
+	color: rgba(255,255,255,0.95);
+	font-size: 3rem;
+	margin: 0;
+}
+
+.collection-description {
+	font-weight: 300;
+	font-size: 1.375rem;
+	margin: 0;
+	color: rgba(255,255,255,0.8);
 }
 
 /* Fade in modal */

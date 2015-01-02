@@ -1,6 +1,7 @@
 var users     = require('./users'),
     posts     = require('./posts'),
     followers = require('./followers'),
+    collections = require('./collections'),
 	_	      = require('lodash'),
 	requestHandler;
 
@@ -21,5 +22,6 @@ module.exports = {
     users: users,
     posts: posts,
     followers: followers,
+    collections: collections,
     requestHandler: requestHandler
 };

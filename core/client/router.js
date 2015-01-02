@@ -4,6 +4,7 @@
 	App.Router = Backbone.Router.extend({
 
 		routes: {
+			'(collection/:slug)/': 'collection',
 			'': 'home',
 			'(@:username)/': 'profile',
 			'(@:username)(/:slug)/': 'post',
@@ -33,9 +34,19 @@
 				post.slug = slug;
 				post.fetch().then(function() {
 					App.currentView = new App.Views.Post({ el: '#main', model: post });
-				})
+				});
 			}
 			
+		},
+
+		collection: function(slug) {
+			if(slug) {
+				var collection = new App.Models.Collection();
+				collection.url = App.paths.api + '/collections/' + slug + '/';
+				collection.fetch().then(function() {
+					App.currentView = new App.Views.Collection({ el: '#main', model: collection });
+				});
+			}
 		}
 	});
 			

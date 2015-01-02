@@ -1,5 +1,29 @@
 this["JST"] = this["JST"] || {};
 
+this["JST"]["collection"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<nav class=\"collection-menu\">\r\n	<a href=\"/\" class=\"back\">&hearts;</a>\r\n	<span class=\"collection-editor\">Collection edited by "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.editor)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</span>\r\n	<ul class=\"collection-buttons\">\r\n		<li class=\"button-profile\"><a href=\"/@";
+  if (helper = helpers.username) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.username); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "/\" style=\"background-image: url(/shared/img/profile.JPG);\"></a></li>	\r\n	</ul>\r\n</nav>\r\n\r\n<header class=\"collection-header\" style=\"background-image: url(http://www.sadmuffin.net/cherrybam/graphics/graphics-photography/photography206.jpg)\">\r\n    <div class=\"overlay\"></div>\r\n    <div class=\"vertical\">\r\n        <div class=\"collection-header-content inner\">\r\n            <h1 class=\"collection-title\">";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h1>\r\n            <h2 class=\"collection-description\">";
+  if (helper = helpers.description) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.description); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h2>\r\n       </div>\r\n    </div>\r\n</header>";
+  return buffer;
+  });
+
 this["JST"]["home"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -155,6 +179,40 @@ function program1(depth0,data) {
   return buffer;
   });
 
+this["JST"]["profile/profile-collection"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n<section class=\"block-contents\">\r\n	<a href=\"\" class=\"label\">Collections</a>\r\n		<div class=\"collection-wrapper\">\r\n			";
+  stack1 = helpers.each.call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n		</div>\r\n</section>	\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n			<div class=\"collection-block\">\r\n				<a href=\"/collection/";
+  if (helper = helpers.slug) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.slug); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "/\" style=\"background: url(http://www.sadmuffin.net/cherrybam/graphics/graphics-photography/photography206.jpg)\">\r\n					<div class=\"darker\">";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n				</a>\r\n			</div>\r\n			";
+  return buffer;
+  }
+
+  stack1 = helpers['if'].call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  });
+
 this["JST"]["profile/profile-follow"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -180,6 +238,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
 function program1(depth0,data) {
   
+  var buffer = "", stack1;
+  buffer += "\r\n\r\n<section class=\"block-contents\">\r\n	<a href=\"\" class=\"label\">Latest</a>\r\n	";
+  stack1 = helpers.each.call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n</section>	\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
   var buffer = "", stack1, helper;
   buffer += "\r\n	<section class=\"post-wrapper\">\r\n		<article clsss=\"post-block\">\r\n			<span class=\"post-title\"><a href=\"/@"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.author)),stack1 == null || stack1 === false ? stack1 : stack1.username)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
@@ -203,9 +270,14 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<section class=\"latest-contents\">\r\n	<a href=\"\" class=\"recommended\">Latest</a>\r\n	";
-  stack1 = helpers.each.call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+function program4(depth0,data) {
+  
+  
+  return "\r\n	<p>Hasn’t written any stories yet..</p>\r\n";
+  }
+
+  stack1 = helpers['if'].call(depth0, depth0, {hash:{},inverse:self.program(4, program4, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n</section>	";
+  buffer += "\r\n<section class=\"profile-collection\">\r\n	\r\n</section>";
   return buffer;
   });

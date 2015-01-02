@@ -2,6 +2,7 @@
 	'use strict';
 
 	var Latest,
+		Collection,
 		Button = {};
 
 	App.Views.Profile = App.View.extend({
@@ -116,5 +117,20 @@
 	Latest = App.View.extend({
 
 		templateName: 'profile/profile-latest',
+
+		initialize: function() {
+		    var target     = window.location.pathname.split( '/' )[1].split('@')[1],
+		        colletions = new App.Collections.Collections();
+
+			colletions.url = App.paths.api + '/collections/all/' + target + '/';
+			colletions.fetch().then(function() {
+				new Collection({ el: '.profile-collection', collection: colletions }).render().el;
+			});		
+		}
+	});
+
+	Collection = App.View.extend({
+
+		templateName: 'profile/profile-collection',
 	});
 }());
