@@ -8,6 +8,7 @@ html, body {
 #main {
 	height: 100%;
 	width: 100%;
+	margin: 0;
 }
 
 .navbar {
@@ -535,7 +536,7 @@ html, body {
 	margin: 0 42%;
 	padding: 2px;
 	display: block;
-	top: -11px; 
+	top: -11.5px; 
 	left: 0; 
 	right: 0;
 	text-align: center;
@@ -679,6 +680,7 @@ html, body {
 }
 
 /* Single collection page */
+.post-menu,
 .collection-menu {
 	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	font-weight: 300;
@@ -689,58 +691,24 @@ html, body {
 	background-image: linear-gradient(to bottom,white 0%, white 25%, rgba(255, 255, 255, 0.9) 100%);
 	font-size: 0.875rem;
 	border-bottom: 1px solid rgba(0,0,0,0.05);
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	z-index: 1000;	
 }
 
+.post-menu .back,
 .collection-menu .back {
 	text-decoration: none;
 	display: inline-block;
 	padding-left: 20px;
 	width: 40px;
-	color: rgba(0,0,0,0.95);
 }
 
+.post-menu .post-author,
 .collection-menu .collection-editor {
 	display: inline-block;
 	padding: 22px 0;
 	color: rgba(0,0,0,0.45);
-}
-
-.collection-menu .collection-buttons {
-	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-	font-weight: 300;
-	font-size: 0.875rem;
-	position: absolute;
-	right: 20px;
-	top: 10px;
-	list-style: none;
-	margin: 0;
-	display: inline-block;
-}
-
-.collection-menu .collection-buttons .button-profile {
-	margin: 0;
-	display: inline-block;
-	margin-left: 3px;
-	text-align: center;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	border-radius: 100%;
-	overflow: hidden;
-	background: #fff;
-	border: 1px solid rgba(0,0,0,0.05);	
-	width: 40px;
-	height: 40px; 
-}
-
-.collection-menu .collection-buttons .button-profile a {
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	background-position: center;
 }
 
 .collection-header {
@@ -772,6 +740,127 @@ html, body {
 	font-size: 1.375rem;
 	margin: 0;
 	color: rgba(255,255,255,0.8);
+}
+
+.collection-contents {
+	margin-top: 80px;
+}
+
+.no-border {
+	border: none;
+	padding-top: 10px;
+}
+
+/* Single post page */
+.post-wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.post-contents {
+	position: absolute;
+	width: 700px;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+    transform: translate(50%, 15%);
+}
+
+.post-contents .post-title {
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 700;
+	color: rgba(0,0,0,0.75);
+	font-size: 2.5rem;
+	text-align: center;
+}
+
+.post-contents .post-content {
+	font-family:"freight-text-pro", Georgia, Cambria, "Times New Roman", Times, serif;
+	line-height: 1.5;
+	font-weight: 400;
+	letter-spacing: 0.01rem;
+	font-size: 1.375rem;
+	color: rgba(0,0,0,0.75);
+}
+
+.post-contents .post-footer-buttons .footer-recommend,
+.post-contents .post-footer-buttons .footer-buttons {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 300;
+	font-size: 0.875rem;
+	list-style: none;
+	padding: 0;
+	display: inline-block;
+}
+
+.post-contents .post-footer-buttons .footer-buttons {
+	position: absolute;
+	right: 0;
+}
+
+.footer-buttons .button-add,
+.footer-buttons .button-bookmark {
+	margin: 0;
+	display: inline-block;
+	margin-left: 8px;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 100%;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid rgba(0,0,0,0.2);	
+	width: 40px;
+	height: 40px; 
+}
+
+.footer-recommend .button-recommend {
+	margin: 0;
+	display: inline-block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
+	background: rgba(255,255,255,0.5);
+	border: 1px solid #57ad68;
+	height: 40px;
+	border-radius: 999em;
+	width: 135px;
+}
+
+.footer-recommend .button-recommend a {
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	padding-top: 11px;
+	color: #57ad68;
+	-webkit-transition: color 0.3s ease-in-out;
+	   -moz-transition: color 0.3s ease-in-out;
+	        transition: color 0.3s ease-in-out;
+	width: 100%;
+	height: 100%;
+}
+
+.footer-buttons .button-bookmark a,
+.footer-buttons .button-add a {
+	padding-top: 11px;
+	color: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 100%;
+	display: block;
+	-webkit-transition: color 0.3s ease-in-out;
+	   -moz-transition: color 0.3s ease-in-out;
+	        transition: color 0.3s ease-in-out;
+}
+
+.footer-buttons .button-bookmark a:hover,
+.footer-buttons .button-add a:hover {
+	color: rgba(0,0,0,0.8);
+}
+
+.footer-recommend .button-recommend a:hover {
+	color: #468c54;	
 }
 
 /* Fade in modal */
@@ -938,6 +1027,90 @@ input[type="submit"].login-submit:focus {
 	margin-left: 55px;
 	margin-bottom: 15px;
 } 
+
+/* Session buttons*/
+
+.session-buttons {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 300;
+	font-size: 0.875rem;
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	list-style: none;
+	margin: 0;
+	display: inline-block;
+}
+
+.session-buttons .button-logout,
+.session-buttons .button-profile {
+	margin: 0;
+	display: inline-block;
+	margin-left: 3px;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 100%;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid rgba(0,0,0,0.05);	
+	width: 40px;
+	height: 40px; 
+}
+
+.session-buttons .button-logout a,
+.session-buttons .button-profile a {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	display: block;
+}
+
+.session-buttons .button-home {
+	margin: 0;
+	display: inline-block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
+	background: rgba(255,255,255,0.5);
+	border: 1px solid #57ad68;
+	height: 40px;
+	border-radius: 999em;
+	width: 120px;
+	text-align: center;
+}
+
+.session-buttons .button-home a {
+	padding-top: 11px;
+	color: #57ad68;
+	-webkit-transition: color 0.3s ease-in-out;
+	   -moz-transition: color 0.3s ease-in-out;
+	        transition: color 0.3s ease-in-out;
+	width: 100%;
+	height: 100%;
+	padding-left: 0;
+}
+
+.session-buttons .button-logout a {
+	padding-top: 11px;
+	color: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 100%;
+	-webkit-transition: color 0.3s ease-in-out;
+	   -moz-transition: color 0.3s ease-in-out;
+	        transition: color 0.3s ease-in-out;
+}
+
+.session-buttons .button-logout a:hover {
+	color: rgba(0,0,0,0.8)
+}
+
+.session-buttons .button-home a:hover {
+	color: #468c54;	
+}
 
 /* Color Palette
    - Almost-black: #191918

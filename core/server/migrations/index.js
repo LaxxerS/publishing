@@ -3,6 +3,7 @@ var knex 	 = require('../models/base').knex,
 	Follower = require('../models/follower').Follower,
 	Post = require('../models/post').Post,
 	Collection = require('../models/collection').Collection,
+	CollectionPost= require('../models/collection-post').CollectionPost,
 
 	user_1,
 	user_2,
@@ -60,6 +61,11 @@ collection_2 = {
 	"editor_id" : 1
 }
 
+collection_post = {
+	"collection_id": 1,
+	"post_id": 1,
+}
+
 function PopulateUsers(user) {
 	return User.add(user).then(function(user) {
 		console.log("userdone");
@@ -81,6 +87,12 @@ function PopulatePost(post) {
 function PopulateCollection(collection) {
 	return Collection.add(collection).then(function() {
 		console.log("collectiondone");
+	})
+}
+
+function PopulateCollectionPost(collection_post) {
+	return CollectionPost.add(collection_post).then(function() {
+		console.log("collectionpostdone");
 	})
 }
 
@@ -161,6 +173,20 @@ init = function() {
 				return PopulateCollection(collection_1);
 			}).then(function() {
 				return PopulateCollection(collection_2);
+			})
+		}
+	});
+
+	knex.schema.hasTable('collections_posts').then(function(exists) {
+		if(!exists) {
+			return knex.schema.createTable('collections_posts', function(t) {
+				t.increments('id').primary();
+				t.string('uuid', 36);
+				t.integer('collection_id').notNullable().references('id').inTable('users');
+				t.integer('post_id').notNullable().references('id').inTable('users');
+				t.timestamps();
+			}).then(function() {
+				return PopulateCollectionPost(collection_post);
 			})
 		}
 	});

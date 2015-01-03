@@ -1,0 +1,8 @@
+<ul class="session-buttons">
+    {{#if id}}
+    <li class="button-profile"><a href="/@{{username}}/" style="background-image: url(/shared/img/profile.JPG);"></a></li>
+    <li class="button-logout"><a href="/"><i class="fa fa-lock"></i></a></li>
+    {{else}}
+    <li class="button-home"><a href="/" class="back">Back to home</a></li>
+    {{/if}}
+</ul>

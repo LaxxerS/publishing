@@ -1,9 +1,8 @@
 <nav class="collection-menu">
-	<a href="/" class="back">&hearts;</a>
+	<a href="/" class="back">M</a>
 	<span class="collection-editor">Collection edited by {{editor.name}}</span>
-	<ul class="collection-buttons">
-		<li class="button-profile"><a href="/@{{username}}/" style="background-image: url(/shared/img/profile.JPG);"></a></li>	
-	</ul>
+    <div class="collection-buttons">
+    </div>
 </nav>
 
 <header class="collection-header" style="background-image: url(http://www.sadmuffin.net/cherrybam/graphics/graphics-photography/photography206.jpg)">
@@ -15,3 +14,25 @@
        </div>
     </div>
 </header>
+
+<section class="collection-contents">
+    <section class="block-contents no-border">
+        <a href="" class="label">Latest</a>
+        <section class="post-wrapper">
+            {{#if posts}}
+                {{#each posts}}
+                <article clsss="post-block">
+                    <span class="post-title"><a href="/@{{author.username}}/{{slug}}">{{title}}</a></span>
+                    <section class="post-content">
+                        {{{html}}}
+                    </section>
+                    <section class="post-footer">
+                        <span class="author"><a href="/@{{author.username}}/">{{author.name}}</a></span>
+                        <a href="#" class="readtime">9 min read</a>
+                    </section>
+                </article> 
+                {{/each}}
+            {{/if}} 
+        </section>
+    </section>    
+</section>

@@ -1,6 +1,7 @@
 var myBookshelf = require('./base'),
 	_			= require('lodash'),
-	User        = require('./user').User,
+    User        = require('./user').User,
+	Post        = require('./post').Post,
     slugs        = require('slugs'),
 
 
@@ -29,19 +30,23 @@ Collection = myBookshelf.Model.extend({
 
 	editor: function() {
 		return this.belongsTo(User, 'editor_id');
-	}
+	},
+
+    posts: function() {
+        return this.belongsToMany(Post);
+    }
 
 }, {
     findAll: function (options) {
     	options = options || {};
-    	options.withRelated = ['editor'];
+    	options.withRelated = ['editor', 'posts', 'posts.author'];
         return myBookshelf.Model.findAll.call(this, options);
     },
 
     findOne: function(args, options) {
     	options = options || {};
 
-    	options.withRelated = ['editor'];
+    	options.withRelated = ['editor', 'posts', 'posts.author'];
     	return myBookshelf.Model.findOne.call(this, args, options);
     },
 
