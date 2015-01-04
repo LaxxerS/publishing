@@ -2,7 +2,9 @@
 	'use strict';
 
 	var Tabs = {},
-		Partial;
+		Partial,
+		Feed,
+		Discover;
 
 	App.Views.Home = App.View.extend({
 
@@ -20,14 +22,20 @@
 			this.menu = this.$('.navbar');
 			this.menu.find('li').removeClass('active');
 
+			var user = new App.Models.Session();
+			user.fetch().then(function() {
+				this.partial = new Partial({ el: '.navbar', model: user });
+			});
+
 			var target = window.location.pathname.split( '/' )[1];
 
-			if(target !== '' && target !== 'top-stories' && target !== 'bookmarks') {
+			if(target !== '' && target !== 'discover' && target !== 'bookmarks') {
 				target = '';
 			}
 			this.menu.find('a[href=#' + target + ']').parent().addClass('active');
 			if(target === '') target = 'feed';
-			if(target === 'top-stories') target = 'top';
+			if(target === 'discover') target = 'discover';
+
 			this.tab = new Tabs[target]({ el: '.main-contents' });
 			this.renderTab();
 			NProgress.done();
@@ -61,7 +69,7 @@
 			App.router.navigate(id + '/');
 			this.setActive(id);
 			if(id === '') id = 'feed';
-			if(id === 'top-stories') id = 'top';
+			if(id === 'discover') id = 'discover';
 
 			
 			this.tab = new Tabs[id]({ el: '.main-contents' });
@@ -107,14 +115,38 @@
 		templateName: 'home/feed',
 
 		initialize: function() {
+			var user = new App.Models.Session();
+			user.fetch().then(function(user) {
+				if(user.username) {
+					var feeds = new App.Collections.Feeds();
+					feeds.url = App.paths.api + '/feeds/' + user.username + '/';
+					feeds.fetch().then(function() {
+						new Feed({ el: '.fill-up-the-feed', collection: feeds });
+					})
+				} else {
+					var posts = new App.Collections.Posts();
+					posts.url = App.paths.api + '/posts/';
+					posts.fetch().then(function() {
+						new Feed({ el: '.fill-up-the-feed', collection: posts });
+					})
+					
+				}
+			});
+
 			NProgress.done();
-		}
+		},
+
 	});
 
-	Tabs.top = Tabs.Base.extend({
-		templateName: 'home/top-stories',
+	Tabs.discover = Tabs.Base.extend({
+		templateName: 'home/discover',
 
 		initialize: function() {
+			var posts = new App.Collections.Posts();
+			posts.url = App.paths.api + '/posts/';
+			posts.fetch().then(function() {
+				new Discover({ el: '.fill-up-the-discover', collection: posts });
+			})
 			NProgress.done();
 		}
 	});
@@ -126,4 +158,20 @@
 			NProgress.done();
 		}
 	});
+
+	Feed = App.View.extend({
+		templateName: 'home/my-feed',
+
+		initialize: function() {
+			this.render();
+		}
+	});
+
+	Discover = App.View.extend({
+		templateName: 'home/my-discover',
+
+		initialize: function() {
+			this.render();
+		}
+	})
 }());

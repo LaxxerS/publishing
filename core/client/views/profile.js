@@ -11,6 +11,7 @@
 
 		events: {
 			'click .following': 'showFollowing',
+			'click .follower': 'showFollower',
 		},
 
 		initialize: function() {
@@ -48,10 +49,15 @@
 
 		showFollowing: function(e) {
 			e.preventDefault();
-			this.$('.modal-wrapper').fadeIn(300).show();
+			this.$('.following-modal').fadeIn(300).show();
 			$('body').css('overflow','hidden');
 		},
-		
+
+		showFollower: function(e) {
+			e.preventDefault();
+			this.$('.follower-modal').fadeIn(300).show();
+			$('body').css('overflow','hidden');
+		},		
 	});
 
 	Button.follow = App.View.extend({

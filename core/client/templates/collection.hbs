@@ -18,21 +18,21 @@
 <section class="collection-contents">
     <section class="block-contents no-border">
         <a href="" class="label">Latest</a>
+        {{#if posts}}
+            {{#each posts}}
         <section class="post-wrapper">
-            {{#if posts}}
-                {{#each posts}}
                 <article clsss="post-block">
                     <span class="post-title"><a href="/@{{author.username}}/{{slug}}">{{title}}</a></span>
                     <section class="post-content">
-                        {{{html}}}
+                        {{excerpt}}
                     </section>
                     <section class="post-footer">
                         <span class="author"><a href="/@{{author.username}}/">{{author.name}}</a></span>
-                        <a href="#" class="readtime">9 min read</a>
+                        <a href="#" class="readtime">{{time}}</a>
                     </section>
                 </article> 
-                {{/each}}
-            {{/if}} 
         </section>
+            {{/each}}
+        {{/if}} 
     </section>    
 </section>

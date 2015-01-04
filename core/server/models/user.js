@@ -6,7 +6,8 @@ var myBookshelf = require('./base'),
 	when		= require('when'),
 	Follower	= require('./follower').Follower,
 
-	User;
+	User,
+	Users;
 
 function generatePasswordHash(password) {
     // Generate a new salt
@@ -25,7 +26,7 @@ User = myBookshelf.Model.extend({
 
 	follower: function() {
 		return this.belongsToMany(User, "users_users", "following_id", "follower_id");
-	}
+	},
 
 }, {
     findAll: function (options) {

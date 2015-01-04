@@ -66,6 +66,19 @@ collections = {
                     return deletedCollection;
                 });
             });
+    },
+
+    all: function(args) {
+            return dataProvider.Post.findAll(args).then(function(result) {
+            var i = 0,
+                omitted = result.toJSON();
+                
+            for (i = 0; i < omitted.length; i = i + 1) {
+                omitted[i].editor = _.omit(omitted[i].editor, Blacklist);
+            }
+            
+            return _.sortBy(omitted, 'updated_at').reverse();
+            });       
     }
 
 };

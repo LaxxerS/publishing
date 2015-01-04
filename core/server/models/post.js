@@ -1,8 +1,9 @@
 var myBookshelf = require('./base'),
 	_			= require('lodash'),
 	User        = require('./user').User,
-    slugs        = require('slugs'),
+    slugs       = require('slugs'),
     Showdown    = require('showdown'),
+    readTime    = require('reading-time'),
  	converter   = new Showdown.converter(),
 
 	Post,
@@ -26,14 +27,18 @@ Post = myBookshelf.Model.extend({
 		this.set('html', converter.makeHtml(this.get('markdown')));
         this.set('slug', slugs(this.get('title')));
 
+        var stats = readTime(this.get('html'));
+
+        this.set('time', stats.text);
+
         myBookshelf.Model.prototype.saving.call(this);
 	},
 
     creating: function(options) {
  
-        if (!this.get('author_id')) {
-            this.set('author_id', 1);
-        }
+        //if (!this.get('author_id')) {
+         //   this.set('author_id', 1);
+        //}
     },
 
 	author: function() {

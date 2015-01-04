@@ -64,8 +64,20 @@ posts = {
                     return deletedPost;
                 });
             });
-    }
+    },
 
+    all: function(args) {
+            return dataProvider.Post.findAll(args).then(function(result) {
+            var i = 0,
+                omitted = result.toJSON();
+                
+            for (i = 0; i < omitted.length; i = i + 1) {
+                omitted[i].author = _.omit(omitted[i].author, Blacklist);
+            }
+            
+            return _.sortBy(omitted, 'updated_at').reverse();
+            });       
+    }
 };
 
 module.exports = posts;

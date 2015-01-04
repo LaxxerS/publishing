@@ -4,6 +4,7 @@
 	App.Router = Backbone.Router.extend({
 
 		routes: {
+			'signup/': 'signup',
 			'(collection/:slug)/': 'collection',
 			'': 'home',
 			'(@:username)/': 'profile',
@@ -11,6 +12,9 @@
 			'(:tab)/': 'home'
 		},
 
+		signup: function() {
+			App.currentView = new App.Views.Signup({ el: '#main' });
+		},
 
 		home: function(tab) {
 			App.currentView = new App.Views.Home({ el: '#main', tab: tab });

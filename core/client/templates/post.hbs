@@ -1,6 +1,6 @@
 <nav class="post-menu">
 	<a href="/" class="back">P</a>
-	<span class="post-author">Chong Zhi Rui on July 7, 2014 9 min</span>
+	<span class="post-author">{{author.name}} on {{date}} &centerdot;  {{time}}</span>
     <div class="post-buttons">
     </div>
 </nav>
@@ -15,7 +15,11 @@
 			</ul>	
 
 			<ul class="footer-buttons">
+				<input type="hidden" name="post_id" value={{id}}>
 				<li class="button-add right"><a href="/"><i class="fa fa-plus"></i></a></li>
+				<div class="button-add-drop">
+
+				</div>
 			    <li class="button-bookmark right"><a href="/"><i class="fa fa-bookmark"></i></a></li>
 			</ul>		
 		</section>	

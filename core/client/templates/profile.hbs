@@ -2,7 +2,7 @@
 	<nav class="nav-menu">
 		<a href="/">Publishing &mdash; &hearts;</a>
 		<ul class="nav-buttons">
-			<li><a href="/@{{username}}/" style="background-image: url(/shared/img/profile.JPG);"></a></li>
+			<li><a href="/@{{username}}/" style="background-image: url(/shared/img/{{#if image}}{{image}}{{else}}default.png{{/if}});"></a></li>
 			<li><a href=""></a></li>
 			<li><a href=""></a></li>
 		</ul>
@@ -11,7 +11,7 @@
 
 <section class="profile-wrapper">
 	<div class="image-holder">
-		<div class="user-image" style="background-image: url(/shared/img/profile.JPG);"></div>
+		<div class="user-image" style="background-image:url(/shared/img/{{#if image}}{{image}}{{else}}default.png{{/if}});"></div>
 	</div>
 	<div class="user-name">{{name}}</div>
 	<div class="user-bio">{{bio}}</div>
@@ -27,10 +27,9 @@
 			
 		</section>
 	</section>
-
 </section>
 
-<div class="modal-wrapper">
+<div class="modal-wrapper following-modal">
 	<a href="" class="close">close [x]</a>
 	<div class="following-wrapper">
 
@@ -38,7 +37,26 @@
 		{{#each following}}
 		<div class="follow-block">
 			<div class="rounded">
-				<div class="user-image" style="background-image: url(/shared/img/profile.JPG);"></div>
+				<div class="user-image" style="background-image: url(/shared/img/{{#if image}}{{image}}{{else}}default.png{{/if}});"></div>
+			</div>
+			<div class="name"><a href="/@{{username}}/">{{name}}</a></div>
+			<div class="username"><a href="/@{{username}}/">@{{username}}</a></div>
+			<div class="bio">{{bio}}</div>
+			
+		</div>
+	    {{/each}}
+	</div>
+</div>
+
+<div class="modal-wrapper follower-modal">
+	<a href="" class="close">close [x]</a>
+	<div class="following-wrapper">
+
+		<div class="name-follow">{{name}} is followed by</div>
+		{{#each follower}}
+		<div class="follow-block">
+			<div class="rounded">
+				<div class="user-image" style="background-image: url(/shared/img/{{#if image}}{{image}}{{else}}default.png{{/if}});"></div>
 			</div>
 			<div class="name"><a href="/@{{username}}/">{{name}}</a></div>
 			<div class="username"><a href="/@{{username}}/">@{{username}}</a></div>

@@ -188,6 +188,10 @@ html, body {
 	border-bottom: 1px solid rgba(0,0,0,0.05);		
 }
 
+.sidebar-wrapper {
+	margin: 50px 0;
+}
+
 .contents-wrapper .recommend {
 	display: block;
 	padding: 5px 0;
@@ -516,6 +520,7 @@ html, body {
 .profile-contents {
 	position: absolute;
 	top: 100%;
+	width: 100%;
 }
 
 .block-contents {
@@ -724,7 +729,7 @@ html, body {
 }
 
 .collection-header-content {
-  z-index: 1000;
+  	z-index: 1000;
 }
 
 .collection-title {
@@ -758,12 +763,12 @@ html, body {
 }
 
 .post-contents {
-	position: absolute;
-	width: 700px;
-	margin: 0;
-	padding: 0;
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 100px 0;
 	height: 100%;
-    transform: translate(50%, 15%);
+	text-align: justify;
+   
 }
 
 .post-contents .post-title {
@@ -795,7 +800,7 @@ html, body {
 
 .post-contents .post-footer-buttons .footer-buttons {
 	position: absolute;
-	right: 0;
+	right: 320px;
 }
 
 .footer-buttons .button-add,
@@ -863,6 +868,63 @@ html, body {
 	color: #468c54;	
 }
 
+.footer-buttons .button-add-drop {
+	position: absolute;
+	width: 300px;
+	height: 90px;
+	background: rgba(255,255,255,0.95);
+	top: -100px;
+	left: -255px;
+	text-align: center;
+	border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.1);
+	display: none;
+}
+
+.footer-buttons .button-add-drop .drop-title {
+	padding: 10px 0;
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	color: rgba(0,0,0,0.6);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 0.6875rem;
+}
+
+.footer-buttons .button-add-drop .drop-wrapper {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	color: rgba(0,0,0,0.6);	
+}
+
+.footer-buttons .button-add-drop .collection {
+	border: 1px solid rgba(0,0,0,0.1);
+	height: 30px;
+	width: 180px;
+	border-radius: 999em;
+}
+
+.footer-buttons .button-add-drop .collection:focus {
+	outline: none;
+}
+
+.footer-buttons .button-add-drop .add-to {
+	height: 30px;
+	width: 30px;
+	border-radius: 100%;
+	border: none;
+	background: #57ad68;
+	color: #fff;
+	-webkit-transition: background 0.3s ease-in-out;
+	   -moz-transition: background 0.3s ease-in-out;
+	        transition: background 0.3s ease-in-out; 
+}
+
+.footer-buttons .button-add-drop .add-to:hover {
+	background: #468c54;
+}
+
+.footer-buttons .button-add-drop .add-to:focus {
+	outline: none;
+}
 /* Fade in modal */
 .modal-wrapper {
 	width: 100%;
@@ -1028,6 +1090,17 @@ input[type="submit"].login-submit:focus {
 	margin-bottom: 15px;
 } 
 
+.modal-wrapper .sign-up {
+	text-decoration: none;
+	color: #57ad68;
+	-webkit-transition: color 0.3s ease-in-out;
+	   -moz-transition: color 0.3s ease-in-out;
+	        transition: color 0.3s ease-in-out;  
+}
+
+.modal-wrapper .sign-up:hover {
+	color: #468c54;
+}
 /* Session buttons*/
 
 .session-buttons {

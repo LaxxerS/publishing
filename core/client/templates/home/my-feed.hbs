@@ -1,0 +1,29 @@
+{{#if []}}
+	{{#each []}}
+		<section class="contents-wrapper">
+			<article clsss="post-block">
+				<span class="post-title"><a href="/@{{author.username}}/{{slug}}">{{title}}</a></span>
+				<section class="post-content">
+					{{excerpt}}
+				</section>
+				<section class="post-footer">
+					<div class="rounded">
+						<div class="user-image" style="background-image: url(/shared/img/{{#if author.image}}{{author.image}}{{else}}default.png{{/if}});"></div>
+					</div>
+						<span class="author"><a href="/@{{author.username}}/">{{author.name}}</a></span>
+						<span class="time">{{date created_at timeago="True"}}</span>
+						<a href="#" class="readtime">{{time}}</a>
+				</section>
+			</article>	
+		</section>
+
+	{{/each}}
+{{else}}
+	<section class="contents-wrapper">
+		<article clsss="post-block">
+			<section class="post-content">
+				Your feed is empty. Click the 'follow' button to follow a user.
+			</section>
+		</article>	
+	</section>
+{{/if}}

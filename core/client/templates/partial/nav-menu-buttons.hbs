@@ -4,13 +4,13 @@
 	<nav class="nav-tabs">
 		<ul class="nav-tabs-list">
 			<li><a href="#">home</a></li>
-			<li><a href="#top-stories">top stories</a></li>
+			<li><a href="#discover">discover</a></li>
 			<li><a href="#bookmarks">bookmarks</a></li>
 		</ul>
 	</nav>
 	<ul class="nav-buttons">
 		{{#if id}}
-		<li class="button-profile"><a href="/@{{username}}/" style="background-image: url(/shared/img/profile.JPG);"></a></li>
+		<li class="button-profile"><a href="/@{{username}}/" style="background-image: url(/shared/img/{{#if image}}{{image}}{{else}}default.png{{/if}});"></a></li>
 		<li class="button-logout"><a href="/"><i class="fa fa-lock"></i></a></li>
 		{{else}}
 		<li class="button-sign"><a href="" class="sign-in">Sign in / Sign up</a></li>

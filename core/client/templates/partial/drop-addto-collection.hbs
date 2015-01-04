@@ -1,0 +1,13 @@
+<div class="drop-title">Add to collection</div>
+	<div class="drop-wrapper">
+		<select class="collection">
+			{{#if []}}
+				{{#each []}}
+					<option value="{{id}}">{{title}}</option>
+				{{/each}}
+			{{else}}
+					<option>Please create a collection</option>
+			{{/if}}
+		</select>
+		<button class="add-to"><i class="fa fa-plus"></i></button>
+</div>
