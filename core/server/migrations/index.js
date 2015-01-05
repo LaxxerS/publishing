@@ -21,10 +21,10 @@ user_1 = {
 }
 
 user_2 = {
-	"name": "Leong Shu Hwa",
-	"username": "nicole",
+	"name": "Kevin Choi",
+	"username": "kevin",
 	"password": "abc123laxx",
-	"email": "nicole@gmail.com"
+	"email": "kevin@gmail.com"
 }
 
 user_3 = {

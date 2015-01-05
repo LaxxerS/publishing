@@ -22,14 +22,14 @@ Bookmark = myBookshelf.Model.extend({
 }, {
     findAll: function (options) {
     	options = options || {};
-    	options.withRelated = ['owner', 'posts'];
+    	options.withRelated = ['owner', 'posts', 'posts.author'];
         return myBookshelf.Model.findAll.call(this, options);
     },
 
     findOne: function(args, options) {
     	options = options || {};
 
-    	options.withRelated = ['owner', 'posts'];
+    	options.withRelated = ['owner', 'posts', 'posts.author'];
     	return myBookshelf.Model.findOne.call(this, args, options);
     },
 

@@ -75,7 +75,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<header class=\"navbar\">\r\n\r\n</header>\r\n\r\n<div class=\"modal-wrapper\">\r\n	<a href=\"\" class=\"close\">close [x]</a>\r\n	<div class=\"login-form\">\r\n		<span class=\"title\">Sign in / <a class=\"sign-up\" href=\"/signup/\">Sign up</a></span>\r\n		<form method=\"post\" action=\"/login/\">\r\n			<input type=\"email\" class=\"login-mail\" name=\"email\" placeholder=\"Email\" autocapitalize=\"off\" autocomplete=\"off\" spellcheck=\"false\" required autofocus>\r\n			<input type=\"password\" class=\"login-password\" name=\"password\" placeholder=\"Password\" required>\r\n			<input type=\"submit\" class=\"login-submit\" value=\"Sign In\">\r\n		</form>\r\n	</div>\r\n\r\n</div>\r\n\r\n<section class=\"main-contents\">\r\n\r\n</section>\r\n\r\n<aside class=\"sidebar\">\r\n	\r\n</aside>";
+  return "<header class=\"navbar\">\r\n\r\n</header>\r\n\r\n<div class=\"modal-wrapper\">\r\n	<a href=\"\" class=\"close\">close [x]</a>\r\n	<div class=\"login-form\">\r\n		<span class=\"title\">Sign in / <a class=\"sign-up\" href=\"/signup/\">Sign up</a></span>\r\n		<form method=\"post\" action=\"/login/\">\r\n			<input type=\"email\" class=\"login-mail\" name=\"email\" placeholder=\"Email\" autocapitalize=\"off\" autocomplete=\"off\" spellcheck=\"false\" required autofocus>\r\n			<input type=\"password\" class=\"login-password\" name=\"password\" placeholder=\"Password\" required>\r\n			<input type=\"submit\" class=\"login-submit\" value=\"Sign In\">\r\n		</form>\r\n	</div>\r\n</div>\r\n\r\n<section class=\"main-contents\">\r\n\r\n</section>\r\n\r\n<aside class=\"sidebar\">\r\n	\r\n</aside>";
   });
 
 this["JST"]["home/bookmarks"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -623,5 +623,5 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "sign up";
+  return "<div class=\"signup-form\">\r\n	<span class=\"title\">Sign up</span>\r\n	<form method=\"post\">\r\n		<input type=\"text\" class=\"login-name\" name=\"name\" placeholder=\"Name\" autocapitalize=\"off\" autocomplete=\"off\" spellcheck=\"false\" required autofocus>\r\n		<input type=\"text\" class=\"login-username\" name=\"username\" placeholder=\"Username\" autocapitalize=\"off\" autocomplete=\"off\" spellcheck=\"false\" required>\r\n		<input type=\"email\" class=\"login-mail\" name=\"email\" placeholder=\"Email\" autocapitalize=\"off\" autocomplete=\"off\" spellcheck=\"false\" required>\r\n		<input type=\"password\" class=\"login-password\" name=\"password\" placeholder=\"Password\" required>\r\n		<input type=\"submit\" class=\"login-submit\" value=\"Sign Up\">\r\n	</form>\r\n</div>";
   });

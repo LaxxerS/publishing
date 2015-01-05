@@ -957,14 +957,15 @@ html, body {
 	color: rgba(0,0,0,0.75);
 }
 
-.modal-wrapper .title {
+.title {
 	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	font-size: 3.75rem;
 	font-weight: 700;
 }
 
-/* For login */
-.modal-wrapper .login-form {
+/* For login & sign up */
+.signup-form,
+.login-form {
 	position: fixed;
 	top: 45%;
 	left: 50%;
@@ -972,6 +973,8 @@ html, body {
 	margin: 0;
 }
 
+input[type="text"].login-name,
+input[type="text"].login-username,
 input[type="email"].login-mail, 
 input[type="password"].login-password {
 	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
@@ -992,6 +995,8 @@ input[type="password"].login-password {
 	        transition: border 0.3s ease-in-out;  
 }
 
+input[type="text"].login-name:focus,
+input[type="text"].login-username:focus,
 input[type="email"].login-mail:focus, 
 input[type="password"].login-password:focus {
 	outline: none;
