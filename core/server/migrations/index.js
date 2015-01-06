@@ -5,6 +5,7 @@ var knex 	 = require('../models/base').knex,
 	Collection = require('../models/collection').Collection,
 	CollectionPost= require('../models/collection-post').CollectionPost,
 	Bookmark = require('../models/bookmark').Bookmark,
+	Recommend = require('../models/recommend').Recommend,
 
 	user_1,
 	user_2,
@@ -66,7 +67,7 @@ collection_1 = {
 }
 
 collection_2 = {
-	"title": "Techno Geek",
+	"title": "My Collection 2",
 	"description": "All about techs.",
 	"editor_id" : 1
 }
@@ -75,6 +76,12 @@ bookmark_1 = {
 	"owner_id": 1,
 	"post_id": 1
 }
+
+recommend_1 = {
+	"owner_id": 1,
+	"post_id": 1
+}
+
 function PopulateUsers(user) {
 	return User.add(user).then(function(user) {
 		console.log("userdone");
@@ -96,6 +103,12 @@ function PopulateCollection(collection) {
 function PopulateBookmark(bookmark) {
 	return Bookmark.add(bookmark).then(function() {
 		console.log("bookmarkdone");
+	})	
+}
+
+function PopulateRecommend(recommend) {
+	return Recommend.add(recommend).then(function() {
+		console.log("recommenddone");
 	})	
 }
 
@@ -207,6 +220,20 @@ init = function() {
 				t.timestamps();
 			}).then(function() {
 				return PopulateBookmark(bookmark_1);
+			})
+		}
+	});
+
+	knex.schema.hasTable('recommends').then(function(exists) {
+		if(!exists) {
+			return knex.schema.createTable('recommends', function(t) {
+				t.increments('id').primary();
+				t.string('uuid', 36);
+				t.integer('owner_id');
+				t.integer('post_id');
+				t.timestamps();
+			}).then(function() {
+				return PopulateRecommend(recommend_1);
 			})
 		}
 	});

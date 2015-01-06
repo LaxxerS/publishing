@@ -35,7 +35,11 @@ function program2(depth0,data) {
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.author)),stack1 == null || stack1 === false ? stack1 : stack1.username)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "/\">"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.author)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</a></span>\r\n                        <a href=\"#\" class=\"readtime\">";
+    + "</a></span>\r\n                        <a href=\"#";
+  if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"readtime\">";
   if (helper = helpers.time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -84,7 +88,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<section class=\"contents-wrapper\">\r\n	<article clsss=\"post-block\">\r\n		<span class=\"post-title\"><a href=\"#\">This Is A Bookmarked Post</a></span>\r\n		<section class=\"post-content\">\r\n			\"I'm not advocating happy endings; I'm advocating well-built stories.\"\r\n		</section>\r\n		<section class=\"post-footer\">\r\n			<div class=\"rounded\">\r\n				<div class=\"user-image\" style=\"background-image: url(/shared/img/profile.JPG);\"></div>\r\n			</div>\r\n				<span class=\"author\"><a href=\"/@laxxers/\">Chong Zhi Rui</a></span>\r\n				<span class=\"time\">1d ago</span>\r\n				<a href=\"#\" class=\"readtime\">9 min read</a>\r\n		</section>\r\n	</article>	\r\n</section>\r\n";
+  return "<section class=\"fill-up-the-bookmark\">\r\n	\r\n</section>";
   });
 
 this["JST"]["home/discover"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -103,6 +107,73 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
 
   return "<section class=\"fill-up-the-feed\">\r\n	\r\n</section>";
+  });
+
+this["JST"]["home/my-bookmark"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n	";
+  stack1 = helpers.each.call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n		<section class=\"contents-wrapper\">\r\n			<article clsss=\"post-block\">\r\n				<span class=\"post-title\"><a href=\"/@"
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.posts)),stack1 == null || stack1 === false ? stack1 : stack1.author)),stack1 == null || stack1 === false ? stack1 : stack1.username)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "/"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.posts)),stack1 == null || stack1 === false ? stack1 : stack1.slug)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\">"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.posts)),stack1 == null || stack1 === false ? stack1 : stack1.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</a></span>\r\n				<section class=\"post-content\">\r\n					";
+  if (helper = helpers.excerpt) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.excerpt); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\r\n				</section>\r\n				<section class=\"post-footer\">\r\n					<div class=\"rounded\">\r\n						<div class=\"user-image\" style=\"background-image: url(/shared/img/";
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.posts)),stack1 == null || stack1 === false ? stack1 : stack1.author)),stack1 == null || stack1 === false ? stack1 : stack1.image), {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += ");\"></div>\r\n					</div>\r\n						<span class=\"author\"><a href=\"/@"
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.posts)),stack1 == null || stack1 === false ? stack1 : stack1.author)),stack1 == null || stack1 === false ? stack1 : stack1.username)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "/\">"
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.posts)),stack1 == null || stack1 === false ? stack1 : stack1.author)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</a></span>\r\n						<span class=\"time\">"
+    + escapeExpression((helper = helpers.date || (depth0 && depth0.date),options={hash:{
+    'timeago': ("True")
+  },data:data},helper ? helper.call(depth0, ((stack1 = (depth0 && depth0.posts)),stack1 == null || stack1 === false ? stack1 : stack1.created_at), options) : helperMissing.call(depth0, "date", ((stack1 = (depth0 && depth0.posts)),stack1 == null || stack1 === false ? stack1 : stack1.created_at), options)))
+    + "</span>\r\n						<a href=\"#"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.posts)),stack1 == null || stack1 === false ? stack1 : stack1.id)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" class=\"remove\">remove</a>\r\n				</section>\r\n			</article>	\r\n		</section>\r\n\r\n	";
+  return buffer;
+  }
+function program3(depth0,data) {
+  
+  var stack1;
+  return escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.posts)),stack1 == null || stack1 === false ? stack1 : stack1.author)),stack1 == null || stack1 === false ? stack1 : stack1.image)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1));
+  }
+
+function program5(depth0,data) {
+  
+  
+  return "default.png";
+  }
+
+function program7(depth0,data) {
+  
+  
+  return "\r\n	<section class=\"contents-wrapper\">\r\n		<article clsss=\"post-block\">\r\n			<section class=\"post-content\">\r\n				Click the <i class=\"fa fa-bookmark\"></i> bookmark button to bookmark a post.\r\n			</section>\r\n		</article>	\r\n	</section>\r\n";
+  }
+
+  stack1 = helpers['if'].call(depth0, depth0, {hash:{},inverse:self.program(7, program7, data),fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n";
+  return buffer;
   });
 
 this["JST"]["home/my-discover"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -213,7 +284,11 @@ function program2(depth0,data) {
     + escapeExpression((helper = helpers.date || (depth0 && depth0.date),options={hash:{
     'timeago': ("True")
   },data:data},helper ? helper.call(depth0, (depth0 && depth0.created_at), options) : helperMissing.call(depth0, "date", (depth0 && depth0.created_at), options)))
-    + "</span>\r\n						<a href=\"#\" class=\"readtime\">";
+    + "</span>\r\n						<a href=\"#";
+  if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"readtime\">";
   if (helper = helpers.time) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.time); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -391,9 +466,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<nav class=\"post-menu\">\r\n	<a href=\"/\" class=\"back\">P</a>\r\n	<span class=\"post-author\">"
+  buffer += "<nav class=\"post-menu\">\r\n	<a href=\"/\" class=\"back\">P</a>\r\n	<span class=\"post-author\"><a href=\"/@"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.author)),stack1 == null || stack1 === false ? stack1 : stack1.username)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "/\">"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.author)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + " on ";
+    + "</a> on ";
   if (helper = helpers.date) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.date); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -409,11 +486,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (helper = helpers.html) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.html); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "</div>\r\n		<section class=\"post-footer-buttons\">\r\n			<ul class=\"footer-recommend\">\r\n			    <li class=\"button-recommend\"><a href=\"/\" class=\"back\"><i class=\"fa fa-heart-o\"></i> Recommend</a></li>\r\n			</ul>	\r\n\r\n			<ul class=\"footer-buttons\">\r\n				<input type=\"hidden\" name=\"post_id\" value=";
+  buffer += "</div>\r\n		<section class=\"post-footer-buttons\">\r\n			<ul class=\"footer-recommend\">\r\n			    <li class=\"button-recommend\"><a href=\"/\" class=\"recommend back\"><i class=\"fa fa-heart-o\"></i> Recommend</a></li>\r\n			</ul>	\r\n\r\n			<ul class=\"footer-buttons\">\r\n				<input type=\"hidden\" name=\"post_id\" value=";
   if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + ">\r\n				<li class=\"button-add right\"><a href=\"/\"><i class=\"fa fa-plus\"></i></a></li>\r\n				<div class=\"button-add-drop\">\r\n\r\n				</div>\r\n			    <li class=\"button-bookmark right\"><a href=\"/\"><i class=\"fa fa-bookmark\"></i></a></li>\r\n			</ul>		\r\n		</section>	\r\n	</section>\r\n\r\n</section>\r\n";
+    + ">\r\n				<li class=\"button-add right\"><a href=\"/\"><i class=\"fa fa-plus\"></i></a></li>\r\n				<div class=\"button-add-drop\">\r\n\r\n				</div>\r\n			    <li class=\"button-bookmark right\"><a href=\"#\" class=\"bookmark-add\"><i class=\"fa fa-bookmark\"></i></a></li>\r\n			</ul>		\r\n		</section>	\r\n	</section>\r\n\r\n</section>\r\n";
   return buffer;
   });
 

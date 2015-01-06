@@ -5,6 +5,7 @@ var users     = require('./users'),
     collectionpost = require('./collectionpost'),
     feeds = require('./feeds'),
     bookmarks = require('./bookmarks'),
+    recommends = require('./recommends'),
 	_	      = require('lodash'),
 	requestHandler;
 
@@ -29,5 +30,6 @@ module.exports = {
     collectionpost: collectionpost,
     feeds: feeds,
     bookmarks: bookmarks,
+    recommends: recommends,
     requestHandler: requestHandler
 };

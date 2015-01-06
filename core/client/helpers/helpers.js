@@ -28,10 +28,17 @@
         return date;
     });
 
-    Handlebars.registerHelper('excerpt', function(context, options) {
-        var excerpt;
+    Handlebars.registerHelper('excerpt', function(options) {
+        var excerpt,
+            context;
 
-        excerpt = String(this.html).replace(/<\/?[^>]+>/gi, '');
+        if(this.html) {
+            context = this.html;
+        } else {
+            context = this.posts.html;
+        }
+
+        excerpt = String(context).replace(/<\/?[^>]+>/gi, '');
         excerpt = excerpt.replace(/(\r\n|\n|\r)+/gm, ' ');
 
 

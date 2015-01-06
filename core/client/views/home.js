@@ -4,7 +4,8 @@
 	var Tabs = {},
 		Partial,
 		Feed,
-		Discover;
+		Discover,
+		Bookmark;
 
 	App.Views.Home = App.View.extend({
 
@@ -155,6 +156,18 @@
 		templateName: 'home/bookmarks',
 
 		initialize: function() {
+			var session = new App.Models.Session();
+			session.fetch().then(function(sess) {
+				if(sess) {
+					var id = sess.id,
+					    bookmarks;
+					bookmarks = new App.Collections.Bookmarks();
+					bookmarks.url = App.paths.api + '/bookmarks/all/' + id + '/';
+					bookmarks.fetch().then(function() {
+						new Bookmark({ el: '.fill-up-the-bookmark', collection: bookmarks })
+					})
+				}
+			})
 			NProgress.done();
 		}
 	});
@@ -162,9 +175,43 @@
 	Feed = App.View.extend({
 		templateName: 'home/my-feed',
 
+		events: {
+			'click .readtime': 'addBookmark',
+		},
+
 		initialize: function() {
 			this.render();
-		}
+		},
+
+		addBookmark: function(e) {
+			e.preventDefault();
+			NProgress.start();
+			var item    = $(e.currentTarget),
+				post_id = item.attr('href').substring(1);
+
+			var session = new App.Models.Session();
+			session.fetch().then(function(sess) {
+				if(sess) {
+					var bookmark = new App.Models.Bookmark();
+					bookmark.urlRoot = App.paths.api +'/bookmarks/' + sess.id + '/' + post_id + '/';
+					bookmark.fetch().then(function(result) {
+						if(result.id) {
+							return;
+						} else {
+							bookmark.urlRoot = App.paths.api +'/bookmarks/';
+							bookmark.save({
+								'owner_id': sess.id,
+								'post_id': post_id
+							}).then(function() {
+								NProgress.done();
+								item.text('bookmarked');
+							})							
+						}
+					})
+
+				}
+			})	
+		},
 	});
 
 	Discover = App.View.extend({
@@ -173,5 +220,50 @@
 		initialize: function() {
 			this.render();
 		}
-	})
+	});
+
+	Bookmark = App.View.extend({
+		templateName: 'home/my-bookmark',
+
+		events: {
+			'click .remove': 'removeBookmark'			
+		},
+
+		initialize: function() {
+			this.render();
+		},
+
+		removeBookmark: function(e) {
+			e.preventDefault();
+			NProgress.start();
+			var item    = $(e.currentTarget),
+				post_id = item.attr('href').substring(1),
+			    session,
+				currentUser,
+				bookmark,
+				_id,
+
+	            session = new App.Models.Session();
+				session.fetch().then(function(sess) {
+					if(sess.id) {
+						currentUser = sess.id;
+					}
+				}).then(function() {
+					bookmark = new App.Models.Bookmark();
+					bookmark.urlRoot = App.paths.api + '/bookmarks/' + currentUser + '/' + post_id;
+					bookmark.fetch().then(function(result) {
+						if(result) {
+							_id = result.id;
+						}
+					}).then(function() {
+						bookmark.url = App.paths.api + '/bookmarks/' + _id + '/';
+						bookmark.destroy({ id: _id }).then(function() {
+							NProgress.done();
+						    Backbone.history.loadUrl();
+						    return false;	
+						});
+					});
+				});
+		}
+	});
 }());

@@ -1,0 +1,29 @@
+{{#if []}}
+	{{#each []}}
+		<section class="contents-wrapper">
+			<article clsss="post-block">
+				<span class="post-title"><a href="/@{{posts.author.username}}/{{posts.slug}}">{{posts.title}}</a></span>
+				<section class="post-content">
+					{{excerpt}}
+				</section>
+				<section class="post-footer">
+					<div class="rounded">
+						<div class="user-image" style="background-image: url(/shared/img/{{#if posts.author.image}}{{posts.author.image}}{{else}}default.png{{/if}});"></div>
+					</div>
+						<span class="author"><a href="/@{{posts.author.username}}/">{{posts.author.name}}</a></span>
+						<span class="time">{{date posts.created_at timeago="True"}}</span>
+						<a href="#{{posts.id}}" class="remove">remove</a>
+				</section>
+			</article>	
+		</section>
+
+	{{/each}}
+{{else}}
+	<section class="contents-wrapper">
+		<article clsss="post-block">
+			<section class="post-content">
+				Click the <i class="fa fa-bookmark"></i> bookmark button to bookmark a post.
+			</section>
+		</article>	
+	</section>
+{{/if}}

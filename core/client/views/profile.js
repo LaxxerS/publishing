@@ -136,7 +136,6 @@
 	});
 
 	Collection = App.View.extend({
-
 		templateName: 'profile/profile-collection',
 	});
 }());

@@ -1,6 +1,6 @@
 <nav class="post-menu">
 	<a href="/" class="back">P</a>
-	<span class="post-author">{{author.name}} on {{date}} &centerdot;  {{time}}</span>
+	<span class="post-author"><a href="/@{{author.username}}/">{{author.name}}</a> on {{date}} &centerdot;  {{time}}</span>
     <div class="post-buttons">
     </div>
 </nav>
@@ -11,7 +11,7 @@
 		<div class="post-content">{{{html}}}</div>
 		<section class="post-footer-buttons">
 			<ul class="footer-recommend">
-			    <li class="button-recommend"><a href="/" class="back"><i class="fa fa-heart-o"></i> Recommend</a></li>
+			    <li class="button-recommend"><a href="/" class="recommend back"><i class="fa fa-heart-o"></i> Recommend</a></li>
 			</ul>	
 
 			<ul class="footer-buttons">
@@ -20,7 +20,7 @@
 				<div class="button-add-drop">
 
 				</div>
-			    <li class="button-bookmark right"><a href="/"><i class="fa fa-bookmark"></i></a></li>
+			    <li class="button-bookmark right"><a href="#" class="bookmark-add"><i class="fa fa-bookmark"></i></a></li>
 			</ul>		
 		</section>	
 	</section>

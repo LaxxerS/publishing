@@ -5,11 +5,11 @@ var myBookshelf = require('./base'),
     slugs        = require('slugs'),
 
 
-	Bookmark,
-	Bookmarks;
+	Recommend,
+	Recommends;
 
-Bookmark = myBookshelf.Model.extend({
-	tableName: 'bookmarks',
+Recommend = myBookshelf.Model.extend({
+	tableName: 'recommends',
 
 	owner: function() {
 		return this.belongsTo(User, 'owner_id');
@@ -41,10 +41,10 @@ Bookmark = myBookshelf.Model.extend({
         });
     },
 
-    add: function(newCollection, options) {
+    add: function(newRecommend, options) {
         var self = this;
 
-        return myBookshelf.Model.add.call(this, newCollection, options);
+        return myBookshelf.Model.add.call(this, newRecommend, options);
     },
 
     destroy: function(_id, options) {
@@ -57,12 +57,12 @@ Bookmark = myBookshelf.Model.extend({
 
 });
 
-Collections = myBookshelf.Collection.extend({
-	model: Bookmark
+Recommends = myBookshelf.Collection.extend({
+	model: Recommend
 });
 
 
 module.exports = {
-	Bookmark: Bookmark,
-	Bookmarks: Bookmarks
+	Recommend: Recommend,
+	Recommends: Recommends
 };

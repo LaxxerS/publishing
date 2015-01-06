@@ -8,6 +8,7 @@ module.exports = {
 	Collection: require('./collection').Collection,
 	CollectionPost: require('./collection-post').CollectionPost,
 	Bookmark: require('./bookmark').Bookmark,
+	Recommend: require('./recommend').Recommend,
 
 	init: function() {
 		return migrations.init();

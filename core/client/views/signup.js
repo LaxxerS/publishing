@@ -16,7 +16,7 @@
 		signUp: function(e) {
 			e.preventDefault();
 			NProgress.start();
-			var name =  $('input[name=name]').val(),
+			var name     =  $('input[name=name]').val(),
 				username =  $('input[name=username]').val(),
 			    email    =  $('input[name=email]').val(),
 			    password =  $('input[name=password]').val(),
