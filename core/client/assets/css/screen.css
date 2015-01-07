@@ -3,6 +3,7 @@ html, body {
 	color: #191918;
 	background: #ffffff;
 	height: 100%;
+	width: 100%;
 }
 
 #main {
@@ -63,7 +64,7 @@ html, body {
 	border: 1px solid #57ad68;
 	height: 40px;
 	border-radius: 999em;
-	width: 160px;
+	padding: 0 20px;
 }
 
 .nav-buttons .button-sign a {
@@ -82,7 +83,7 @@ html, body {
 }
 
 .nav-buttons .button-profile,
-.nav-buttons .button-logout {
+.nav-buttons .button-collection {
 	margin: 0;
 	display: inline-block;
 	margin-left: 3px;
@@ -98,8 +99,8 @@ html, body {
 	height: 40px; 
 }
 
-.nav-buttons .button-logout a {
-	padding-top: 11px;
+.nav-buttons .button-collection a {
+	padding-top: 12px;
 	color: rgba(0,0,0,0.5);
 	width: 100%;
 	height: 100%;
@@ -108,7 +109,7 @@ html, body {
 	        transition: color 0.3s ease-in-out;
 }
 
-.nav-buttons .button-logout a:hover {
+.nav-buttons .button-collection a:hover {
 	color: rgba(0,0,0,0.8)
 }
 
@@ -1149,7 +1150,7 @@ input[type="submit"].login-submit:focus {
 	display: inline-block;
 }
 
-.session-buttons .button-logout,
+.session-buttons .button-collection,
 .session-buttons .button-profile {
 	margin: 0;
 	display: inline-block;
@@ -1166,7 +1167,7 @@ input[type="submit"].login-submit:focus {
 	height: 40px; 
 }
 
-.session-buttons .button-logout a,
+.session-buttons .button-collection a,
 .session-buttons .button-profile a {
 	width: 100%;
 	height: 100%;
@@ -1175,6 +1176,7 @@ input[type="submit"].login-submit:focus {
 	display: block;
 }
 
+.session-buttons .button-sign,
 .session-buttons .button-home {
 	margin: 0;
 	display: inline-block;
@@ -1186,10 +1188,11 @@ input[type="submit"].login-submit:focus {
 	border: 1px solid #57ad68;
 	height: 40px;
 	border-radius: 999em;
-	width: 120px;
 	text-align: center;
+	padding: 0 20px;
 }
 
+.session-buttons .button-sign a,
 .session-buttons .button-home a {
 	padding-top: 11px;
 	color: #57ad68;
@@ -1201,7 +1204,7 @@ input[type="submit"].login-submit:focus {
 	padding-left: 0;
 }
 
-.session-buttons .button-logout a {
+.session-buttons .button-collection a {
 	padding-top: 11px;
 	color: rgba(0,0,0,0.5);
 	width: 100%;
@@ -1211,14 +1214,55 @@ input[type="submit"].login-submit:focus {
 	        transition: color 0.3s ease-in-out;
 }
 
-.session-buttons .button-logout a:hover {
+.session-buttons .button-collection a:hover {
 	color: rgba(0,0,0,0.8)
 }
 
+.session-buttons .button-sign a:hover,
 .session-buttons .button-home a:hover {
 	color: #468c54;	
 }
 
+.notification {
+
+}
+.notification-holder {
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    min-width: 300px;
+	background: #fff;
+	position: fixed;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	z-index: 2000;
+	border: 1px solid rgba(0,0,0,0.2);
+	border-top: none;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	-webkit-box-shadow: 0px 1px 3px -1px rgba(184,184,184,1);
+	-moz-box-shadow: 0px 1px 3px -1px rgba(184,184,184,1);
+	box-shadow: 0px 1px 3px -1px rgba(184,184,184,1);
+	display: inline-block;
+}
+
+.notification-holder .notification-wrapper {
+	text-align: center;
+	padding: 12px 25px;
+}
+
+.notification-holder .notification-contents {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 300;
+	font-size: 0.875rem;
+	color: rgba(0,0,0,0.6);	
+}
 /* Color Palette
    - Almost-black: #191918
    - Very-light-grey: #fafafa

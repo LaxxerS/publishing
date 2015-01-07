@@ -126,11 +126,11 @@
 
 		initialize: function() {
 		    var target     = window.location.pathname.split( '/' )[1].split('@')[1],
-		        colletions = new App.Collections.Collections();
+		        collections = new App.Collections.Collections();
 
-			colletions.url = App.paths.api + '/collections/all/' + target + '/';
-			colletions.fetch().then(function() {
-				new Collection({ el: '.profile-collection', collection: colletions }).render().el;
+			collections.url = App.paths.api + '/collections/all/' + target + '/';
+			collections.fetch().then(function() {
+				new Collection({ el: '.profile-collection', collection: collections }).render().el;
 			});		
 		}
 	});

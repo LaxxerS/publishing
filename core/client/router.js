@@ -5,6 +5,7 @@
 
 		routes: {
 			'signup/': 'signup',
+			'collection/': 'allcollections',
 			'(collection/:slug)/': 'collection',
 			'': 'home',
 			'(@:username)/': 'profile',
@@ -50,7 +51,11 @@
 				collection.fetch().then(function() {
 					App.currentView = new App.Views.Collection({ el: '#main', model: collection });
 				});
-			}
+			} 
+		},
+		
+		allcollections: function() {
+			App.currentView = new App.Views.AllCollections({ el: '#main' });
 		}
 	});
 			

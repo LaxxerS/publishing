@@ -67,10 +67,49 @@ function program2(depth0,data) {
 this["JST"]["collection/collection-all"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<nav class=\"collection-menu\">\r\n	<a href=\"/\" class=\"back\">C</a>\r\n	<span class=\"collection-editor\">&nbsp;</span>\r\n    <div class=\"collection-buttons\">\r\n    </div>\r\n</nav>\r\n<section class=\"profile-wrapper\">\r\n	<div class=\"user-name\">Collections</div>\r\n	<div class=\"user-bio\">Stories grouped by theme or genre</div>\r\n\r\n	<section class=\"profile-follow-wrapper\">\r\n		<input type=\"hidden\" class=\"follow_id\" name=\"follow_id\" value=";
+  if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + ">\r\n		<section class=\"profile-follow\">\r\n			<button class=\"button-follow\">Group Stories</button>\r\n		</section>\r\n	</section>\r\n</section>\r\n\r\n	\r\n<section class=\"profile-contents\">\r\n</section>";
+  return buffer;
+  });
+
+this["JST"]["collection/collection-block"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
   
+  var buffer = "", stack1;
+  buffer += "\r\n<section class=\"block-contents\">\r\n	<a href=\"\" class=\"label\">Your Collection</a>\r\n		<div class=\"collection-wrapper\">\r\n			";
+  stack1 = helpers.each.call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n		</div>\r\n</section>	\r\n";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n			<div class=\"collection-block\">\r\n				<a href=\"/collection/";
+  if (helper = helpers.slug) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.slug); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "/\" style=\"background: url(http://www.sadmuffin.net/cherrybam/graphics/graphics-photography/photography206.jpg)\">\r\n					<div class=\"darker\">";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</div>\r\n				</a>\r\n			</div>\r\n			";
+  return buffer;
+  }
 
-
-  return "<section class=\"profile-wrapper\">\r\n	All Collection\r\n</section>";
+  stack1 = helpers['if'].call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
   });
 
 this["JST"]["home"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -325,7 +364,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<aside class=\"sidebar-contents\">\r\n	<section class=\"sidebar-title\">\r\n		<label for=\"\">Recommended for you</label>\r\n	</section>\r\n\r\n<section class=\"contents-wrapper sidebar-wrapper\">\r\n	<article clsss=\"post-block\">\r\n		<span class=\"post-title\"><a href=\"#\">This Is How You Write a Memoir</a></span>\r\n		<section class=\"post-content\">\r\n			\"I'm not advocating happy endings; I'm advocating well-built stories.\"\r\n		</section>\r\n		<section class=\"post-footer\">\r\n			<div class=\"rounded\">\r\n				<div class=\"user-image\" style=\"background-image: url(/shared/img/profile.JPG);\"></div>\r\n			</div>\r\n				<span class=\"author\"><a href=\"/@laxxers/\">Chong Zhi Rui</a></span>\r\n				<span class=\"time\">1d ago</span>\r\n				<a href=\"#\" class=\"readtime\">9 min read</a>\r\n		</section>\r\n	</article>	\r\n</section>\r\n\r\n<section class=\"contents-wrapper sidebar-wrapper\">\r\n	<article clsss=\"post-block\">\r\n		<span class=\"post-title\"><a href=\"#\">This Is How You Write a Memoir</a></span>\r\n		<section class=\"post-content\">\r\n			\"I'm not advocating happy endings; I'm advocating well-built stories.\"\r\n		</section>\r\n		<section class=\"post-footer\">\r\n			<div class=\"rounded\">\r\n				<div class=\"user-image\" style=\"background-image: url(/shared/img/profile.JPG);\"></div>\r\n			</div>\r\n				<span class=\"author\"><a href=\"/@laxxers/\">Chong Zhi Rui</a></span>\r\n				<span class=\"time\">1d ago</span>\r\n				<a href=\"#\" class=\"readtime\">9 min read</a>\r\n		</section>\r\n	</article>	\r\n</section>\r\n</aside>";
+  return "<aside class=\"sidebar-contents\">\r\n	<section class=\"sidebar-title\">\r\n		<label for=\"\">Recommended for you</label>\r\n	</section>\r\n\r\n<section class=\"contents-wrapper sidebar-wrapper\">\r\n	<article clsss=\"post-block\">\r\n		<span class=\"post-title\"><a href=\"#\">This Is How You Write a Memoir</a></span>\r\n		<section class=\"post-content\">\r\n			\"I'm not advocating happy endings; I'm advocating well-built stories.\"\r\n		</section>\r\n		<section class=\"post-footer\">\r\n			<div class=\"rounded\">\r\n				<div class=\"user-image\" style=\"background-image: url(/shared/img/profile.JPG);\"></div>\r\n			</div>\r\n				<span class=\"author\"><a href=\"/@laxxers/\">Chong Zhi Rui</a></span>\r\n				<span class=\"time\">1d ago</span>\r\n				<a href=\"#\" class=\"readtime\">9 min read</a>\r\n		</section>\r\n	</article>	\r\n</section>\r\n</aside>";
   });
 
 this["JST"]["partial/drop-addto-collection"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -385,7 +424,7 @@ function program1(depth0,data) {
     + "/\" style=\"background-image: url(/shared/img/";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.image), {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += ");\"></a></li>\r\n		<li class=\"button-logout\"><a href=\"/\"><i class=\"fa fa-lock\"></i></a></li>\r\n		";
+  buffer += ");\"></a></li>\r\n		<li class=\"button-sign\"><a href=\"\" class=\"sign-in\">Logout</a></li>\r\n		";
   return buffer;
   }
 function program2(depth0,data) {
@@ -408,10 +447,24 @@ function program6(depth0,data) {
   return "\r\n		<li class=\"button-sign\"><a href=\"\" class=\"sign-in\">Sign in / Sign up</a></li>\r\n		";
   }
 
-  buffer += "\r\n<nav class=\"nav-menu\">\r\n	<a href=\"/\">Publishing &mdash; &hearts;</a>\r\n	<nav class=\"nav-tabs\">\r\n		<ul class=\"nav-tabs-list\">\r\n			<li><a href=\"#\">home</a></li>\r\n			<li><a href=\"#discover\">discover</a></li>\r\n			<li><a href=\"#bookmarks\">bookmarks</a></li>\r\n		</ul>\r\n	</nav>\r\n	<ul class=\"nav-buttons\">\r\n		";
+  buffer += "\r\n<nav class=\"nav-menu\">\r\n	<a href=\"/\">Publishing &mdash; &hearts;</a>\r\n	<nav class=\"nav-tabs\">\r\n		<ul class=\"nav-tabs-list\">\r\n			<li><a href=\"#\">home</a></li>\r\n			<li><a href=\"#discover\">discover</a></li>\r\n			<li><a href=\"#bookmarks\">bookmarks</a></li>\r\n		</ul>\r\n	</nav>\r\n	<ul class=\"nav-buttons\">\r\n		<li class=\"button-collection\"><a href=\"/collection/\"><i class=\"fa fa-folder\"></i></a></li>\r\n		";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.id), {hash:{},inverse:self.program(6, program6, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\r\n	</ul>\r\n</nav>\r\n";
+  return buffer;
+  });
+
+this["JST"]["partial/notification"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<section class=\"notification-holder\">\r\n    <section class=\"notification-wrapper\">\r\n        <section class=\"notification-contents\">\r\n            ";
+  if (helper = helpers.message) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.message); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\r\n        </section>\r\n    </section>\r\n</section> ";
   return buffer;
   });
 
@@ -430,7 +483,7 @@ function program1(depth0,data) {
     + "/\" style=\"background-image: url(/shared/img/";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.image), {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += ");\"></a></li>\r\n    <li class=\"button-logout\"><a href=\"/\"><i class=\"fa fa-lock\"></i></a></li>\r\n    ";
+  buffer += ");\"></a></li>\r\n    <li class=\"button-sign\"><a href=\"/collection/\"class=\"back\">Logout</a></li>\r\n    ";
   return buffer;
   }
 function program2(depth0,data) {
@@ -453,7 +506,7 @@ function program6(depth0,data) {
   return "\r\n    <li class=\"button-home\"><a href=\"/\" class=\"back\">Back to home</a></li>\r\n    ";
   }
 
-  buffer += "<ul class=\"session-buttons\">\r\n    ";
+  buffer += "<ul class=\"session-buttons\">\r\n	<li class=\"button-collection\"><a href=\"/collection/\"><i class=\"fa fa-folder\"></i></a></li>\r\n    ";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.id), {hash:{},inverse:self.program(6, program6, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\r\n</ul>";

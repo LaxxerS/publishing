@@ -33,6 +33,10 @@
 					bookmark.urlRoot = App.paths.api +'/bookmarks/' + sess.id + '/' + post_id + '/';
 					bookmark.fetch().then(function(result) {
 						if(result.id) {
+							NProgress.done();
+							App.notifications.addItem({
+			                    message: 'This post has already been bookmarked before!',
+			                });								
 							return;
 						} else {
 							bookmark.urlRoot = App.paths.api +'/bookmarks/';
@@ -41,6 +45,9 @@
 								'post_id': post_id
 							}).then(function() {
 								NProgress.done();
+								App.notifications.addItem({
+				                    message: 'Your bookmark has been added.',
+				                });								
 								item.text('bookmarked');
 							})							
 						}

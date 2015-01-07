@@ -9,9 +9,10 @@
 		</ul>
 	</nav>
 	<ul class="nav-buttons">
+		<li class="button-collection"><a href="/collection/"><i class="fa fa-folder"></i></a></li>
 		{{#if id}}
 		<li class="button-profile"><a href="/@{{username}}/" style="background-image: url(/shared/img/{{#if image}}{{image}}{{else}}default.png{{/if}});"></a></li>
-		<li class="button-logout"><a href="/"><i class="fa fa-lock"></i></a></li>
+		<li class="button-sign"><a href="" class="sign-in">Logout</a></li>
 		{{else}}
 		<li class="button-sign"><a href="" class="sign-in">Sign in / Sign up</a></li>
 		{{/if}}
