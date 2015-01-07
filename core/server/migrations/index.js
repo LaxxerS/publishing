@@ -18,7 +18,7 @@ user_1 = {
 	"username": "laxxers",
 	"password": "abc123laxx",
 	"email": "laxxers@gmail.com",
-	"image": "profile.jpg"
+	"image": "profile.JPG"
 }
 
 user_2 = {
