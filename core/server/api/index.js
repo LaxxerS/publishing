@@ -1,12 +1,13 @@
-var users     = require('./users'),
-    posts     = require('./posts'),
-    followers = require('./followers'),
-    collections = require('./collections'),
+var users          = require('./users'),
+    posts          = require('./posts'),
+    followers      = require('./followers'),
+    collections    = require('./collections'),
     collectionpost = require('./collectionpost'),
-    feeds = require('./feeds'),
-    bookmarks = require('./bookmarks'),
-    recommends = require('./recommends'),
-	_	      = require('lodash'),
+    feeds          = require('./feeds'),
+    bookmarks      = require('./bookmarks'),
+    recommends     = require('./recommends'),
+    comments       = require('./comments'),
+	_	           = require('lodash'),
 	requestHandler;
 
 requestHandler = function (apiMethod) {
@@ -31,5 +32,6 @@ module.exports = {
     feeds: feeds,
     bookmarks: bookmarks,
     recommends: recommends,
+    comments: comments,
     requestHandler: requestHandler
 };

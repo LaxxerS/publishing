@@ -45,4 +45,9 @@
         return S(excerpt).truncate(300).s;
     });
 
+    Handlebars.registerHelper("plus", function(value, options)
+    {
+        return parseInt(value) + 1;
+    });
+    
 }());

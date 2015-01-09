@@ -9,15 +9,35 @@ recommends = {
 	browse: function(args) {
             return dataProvider.Recommend.findAll().then(function(result) {
             var i = 0,
-                omitted = result.toJSON();
-                
+                omitted = result.toJSON(),
+                posts,
+                results,
+                recommend;
+           
             for (i = 0; i < omitted.length; i = i + 1) {
                 omitted[i].owner = _.omit(omitted[i].owner, Blacklist);
             }
-            
-            omitted = _.filter(omitted, { 'owner_id': parseInt(args.owner_id) });
 
-            return _.sortBy(omitted, 'updated_at').reverse();
+            posts = _.chain(omitted).countBy("post_id").pairs().sortBy(1).reverse().pluck(0).value();
+            
+            if(posts.length > 10) {
+                 for(var i = 0; i < 5; i++){
+                    posts[i] = parseInt(posts[i], 10);
+
+                    results = _.filter(omitted, { 'post_id': posts[i] });
+                    recommend = _.union(recommend, results);
+                }                
+            } else {
+                for(var i = 0; i < posts.length; i++){
+                    posts[i] = parseInt(posts[i], 10);
+
+                    results = _.filter(omitted, { 'post_id': posts[i] });
+                    recommend = _.union(recommend, results);
+                }                
+            }
+
+
+            return _.uniq(recommend, "post_id");
             });
 		},
 

@@ -11,6 +11,7 @@
 
 		initialize: function() {
 			this.render();
+			NProgress.done();
 		},
 
 		signUp: function(e) {

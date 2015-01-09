@@ -11,7 +11,9 @@
 		events: {
 			'click .button-add': 'showDropDown',
 			'click .bookmark-add': 'addBookmark',
-			'click .recommend': 'recommend'
+			'click .recommend': 'recommend',
+			'click .add-com': 'addComment',
+			'click .login-submit': 'postComment'
 		},
 
 		initialize: function() {
@@ -101,7 +103,7 @@
 							}).then(function() {
 								NProgress.done();
 								App.notifications.addItem({
-				                    message: 'Recommended!.',
+				                    message: 'Recommended!',
 				                });									
 							})							
 						}
@@ -109,6 +111,48 @@
 
 				}
 			})	
+		},
+
+		addComment: function(e) {
+			e.preventDefault();
+			this.$('.modal-wrapper').fadeIn(300).show();
+			$('body').css('overflow','hidden');			
+		},
+
+		postComment: function(e) {
+			var text = $('textarea').val(),
+			    post_id = $('input[name=post_id]').val(),
+
+			  	comment,
+			  	session;
+			session = new App.Models.Session();
+			session.fetch().then(function(sess) {
+				if(sess.id) {
+					comment = new App.Models.Comment();
+					comment.urlRoot = App.paths.api + '/comments/';
+					comment.save({
+						"user_id": sess.id,
+						"post_id": post_id,
+						"markdown": text
+					}).then(function() {
+						App.notifications.addItem({
+		                    message: 'Your comment has been added.',
+		                });			
+		                $('body').css('overflow','auto');	
+						Backbone.history.loadUrl();
+						return false;					
+					})			
+				} else {
+					$('body').css('overflow','auto');	
+					App.notifications.addItem({
+	                    message: 'Please login to comment.',
+	                });	
+
+					Backbone.history.loadUrl();
+					return false;					
+				}
+			})
+
 		}
 		
 	});
@@ -151,6 +195,6 @@
                 });					
 			});
 		}
-	})
+	});
 	
 }());

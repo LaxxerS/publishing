@@ -5,12 +5,12 @@
 		Partial,
 		Feed,
 		Discover,
-		Bookmark;
+		Bookmark,
+		Top;
 
 	App.Views.Home = App.View.extend({
 
 		templateName: 'home',
-
 
 		events: {
 			'click .sign-in': 'showSignin',
@@ -101,6 +101,11 @@
 
 		initialize: function() {
 			this.render();
+			var top = new App.Collections.Recommends();
+			top.url = App.paths.api + '/recommends/all/';
+			top.fetch().then(function() {
+				new Top({ el: '.sidebar-wrapper', collection: top });
+			});
 		}
 	});
 
@@ -276,4 +281,12 @@
 				});
 		}
 	});
+
+	Top = App.View.extend({
+		templateName: 'home/my-sidebar',
+
+		initialize: function() {
+			this.render();
+		}
+	})
 }());

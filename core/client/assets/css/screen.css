@@ -4,6 +4,8 @@ html, body {
 	background: #ffffff;
 	height: 100%;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 #main {
@@ -189,10 +191,6 @@ html, body {
 	border-bottom: 1px solid rgba(0,0,0,0.05);		
 }
 
-.sidebar-wrapper {
-	margin: 50px 0;
-}
-
 .contents-wrapper .recommend {
 	display: block;
 	padding: 5px 0;
@@ -357,6 +355,56 @@ html, body {
 	padding-top: 15px;
 	border-top: 1px solid rgba(0,0,0,0.6);	
 }
+
+.sidebar-wrapper {
+	margin-top: 35px;
+}
+
+.sidebar-block {
+	margin: 20px 0;
+	padding-bottom: 10px;
+	min-height: 60px;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.sidebar-block .rank {
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 600;	
+	font-size: 0.8125rem;
+	color: rgba(0,0,0,0.6);
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding-top: 20px;
+	line-height: 0;
+	background: #fff;
+}
+
+.sidebar-block .author,
+.sidebar-block .post-title {
+	display: block;
+	padding-left: 55px;
+}
+
+.sidebar-block .author a,
+.sidebar-block .post-title a {
+	text-decoration: none;
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 300;
+	font-size: 0.875rem;
+	color: rgba(0,0,0,0.95);
+}
+
+.sidebar-block .author a {
+	color: rgba(0,0,0,0.5);
+	-webkit-transition: color 0.5s ease-in-out;
+	   -moz-transition: color 0.5s ease-in-out;
+	        transition: color 0.5s ease-in-out;
+}
+
+.sidebar-block .author a:hover {
+	color: rgba(0,0,0,0.7);
+}
 /* Utility class */
 .rounded {
 	-webkit-box-sizing: border-box;
@@ -375,29 +423,44 @@ html, body {
 	height: 40px;  	
 }
 
+.large {
+	width: 80px;
+	height: 80px;  	
+}
+
 .inner {
-  position: relative;
-  width: 80%;
-  max-width: 700px;
-  margin: 0 auto;
+	position: relative;
+	width: 80%;
+	max-width: 700px;
+	margin: 0 auto;
 }
 
 .vertical {
-  display: table-cell;
-  vertical-align: middle;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .overlay { 
-  position: absolute; 
-  top:0; 
-  left: 0; 
-  width: 100%; 
-  height: 100%;
-  background: #303538; 
-  opacity: .3; 
-  z-index: 1;
+	position: absolute; 
+	top:0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%;
+	background: #303538; 
+	opacity: .3; 
+	z-index: 1;
 } 
 
+.nothing {
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	width: 700px;
+	margin: 0 auto;
+	text-align: center;
+	min-height: 50px;
+	margin-bottom: 10px;
+	font-weight: 300;
+	color: rgba(0,0,0,0.5);
+}
 /* User Profile */
 .profile-wrapper {
 	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
@@ -429,6 +492,7 @@ html, body {
 	box-shadow: 0px 1px 3px -1px rgba(117,117,116,1);
 }
 
+.comments-wrapper .user-image,
 .profile-wrapper .user-image {
 	background-size: cover;
 	background-position: center;
@@ -790,7 +854,7 @@ html, body {
 /* Single post page */
 .post-wrapper {
 	width: 100%;
-	height: 100%;
+	flex: 1 0 auto;
 }
 
 .post-contents {
@@ -955,6 +1019,118 @@ html, body {
 .footer-buttons .button-add-drop .add-to:focus {
 	outline: none;
 }
+
+.comments-button {
+	min-height: 90px;
+	width: 100%;
+	flex: none;
+	background: #fafafa;
+	text-align: center;
+	padding: 80px 0;
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	color: rgba(0,0,0,0.5);
+	font-weight: 300
+}
+
+.add-comment {
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
+	background: rgba(255,255,255,0.2);
+	border: 1px solid #57ad68;
+	height: 40px;
+	border-radius: 999em;
+	text-align: center;
+	padding: 0 20px;	
+	font-size: 0.875rem;
+}
+
+.add-comment a {
+	text-decoration: none;
+	padding-top: 11px;
+	color: #57ad68;
+	width: 100%;
+	height: 100%;
+	display: block;
+	-webkit-transition: color 0.3s ease-in-out;
+	   -moz-transition: color 0.3s ease-in-out;
+	        transition: color 0.3s ease-in-out;
+}
+
+.add-comment a:hover {
+	color: #468c54;	
+}
+
+.post-comments {
+	min-height: 300px;
+	width: 100%;
+	flex: none;
+}
+
+.post-comments .section-title {
+	width: 700px;
+	margin: 20px auto;	
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	padding-bottom: 10px;
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	text-transform: uppercase;
+	font-weight: 600;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+    display: block;
+	font-size: 0.6875rem;
+	letter-spacing: .1em;
+	color: rgba(0,0,0,0.75);
+}
+
+.post-comments .section-title label {
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+	padding-bottom: 10px;	
+}
+
+.post-comments .comments-wrapper {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	color: rgba(0,0,0,0.6);
+	font-weight: 300;
+	width: 700px;
+	margin: 20px auto;
+	min-height: 150px;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+
+}
+
+.post-comments .author {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;	
+	font-size: 0.8125rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.post-comments .author a {
+	color: rgba(0,0,0,0.6);
+	text-decoration: none;
+}
+
+.post-comments .time {
+	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;	
+	font-size: 0.875rem;
+	font-weight: 300;
+	color: rgba(0,0,0,0.45);
+	padding-left: 5px;
+}
+
+.post-comments .comment-contents {
+	padding: 10px;
+	padding-bottom: 20px;
+	padding-left: 100px;
+}
+
+
 /* Fade in modal */
 .modal-wrapper {
 	width: 100%;
@@ -1030,7 +1206,7 @@ input[type="text"].login-username:focus,
 input[type="email"].login-mail:focus, 
 input[type="password"].login-password:focus {
 	outline: none;
-	border-right: 5px solid rgba(0,0,0,0.5);;
+	border-right: 5px solid rgba(0,0,0,0.5);
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -1057,6 +1233,34 @@ input[type="submit"].login-submit:hover {
 
 input[type="submit"].login-submit:focus {
 	outline: none;
+}
+
+textarea {
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-weight: 300;
+	color: rgba(0,0,0,0.6);
+	width: 100%;
+	border: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	min-height: 200px;
+	resize: none;
+	margin: 5px 0;
+	font-size: 1rem;
+	padding: 5px 10px;
+	background: rgba(255, 255, 255, 0.05);
+	-webkit-transition: border 0.3s ease-in-out;
+	   -moz-transition: border 0.3s ease-in-out;
+	        transition: border 0.3s ease-in-out;  
+}
+
+textarea:focus {
+	outline: none;
+	border-right: 5px solid rgba(0,0,0,0.5);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /* For following */
@@ -1136,6 +1340,34 @@ input[type="submit"].login-submit:focus {
 .modal-wrapper .sign-up:hover {
 	color: #468c54;
 }
+
+.modal-wrapper .upload-holder {
+	min-height: 100px;
+	width: 100%;
+	border: 1px dashed rgba(0,0,0,0.2);
+	display: block;
+	background: rgba(0,0,0,0.05);
+	text-align: center;
+}
+
+.modal-wrapper .upload {
+	width: 100%;
+	height: 100%;
+	display: block;
+	text-align: center;
+	padding-top: 25px;
+	font-size: 2.5rem;
+	text-decoration: none;
+	color: rgba(0,0,0,0.5);
+	-webkit-transition: color 0.3s ease-in-out;
+	   -moz-transition: color 0.3s ease-in-out;
+	        transition: color 0.3s ease-in-out; 
+}
+
+.modal-wrapper .upload:hover {
+	color: rgba(0,0,0,0.8);
+}
+
 /* Session buttons*/
 
 .session-buttons {
@@ -1223,9 +1455,6 @@ input[type="submit"].login-submit:focus {
 	color: #468c54;	
 }
 
-.notification {
-
-}
 .notification-holder {
     width: -moz-fit-content;
     width: -webkit-fit-content;
@@ -1262,6 +1491,10 @@ input[type="submit"].login-submit:focus {
 	font-weight: 300;
 	font-size: 0.875rem;
 	color: rgba(0,0,0,0.6);	
+}
+
+button:focus {
+	outline: none;
 }
 /* Color Palette
    - Almost-black: #191918

@@ -1,66 +1,43 @@
 var myBookshelf = require('./base'),
 	_			= require('lodash'),
     User        = require('./user').User,
-	Comment     = require('./comment').Comment,
+	Post        = require('./post').Post,
     slugs       = require('slugs'),
     Showdown    = require('showdown'),
     readTime    = require('reading-time'),
  	converter   = new Showdown.converter(),
 
-	Post,
-	Posts;
+	Comment,
+	Comments;
 
-Post = myBookshelf.Model.extend({
-	tableName: 'posts',
-
-	defaults: function() {
-		return {
-			status: 'published'
-		};
-	},
+Comment = myBookshelf.Model.extend({
+	tableName: 'comments',
 
 	initialize: function () {
-		this.on('saving', this.saving);
-		this.on('creating', this.creating);
+        this.on('saving', this.saving);
 	},
 
 	saving: function() {
 		this.set('html', converter.makeHtml(this.get('markdown')));
-        this.set('slug', slugs(this.get('title')));
-
-        var stats = readTime(this.get('html'));
-
-        this.set('time', stats.text);
 
         myBookshelf.Model.prototype.saving.call(this);
 	},
 
-    creating: function(options) {
- 
-        //if (!this.get('author_id')) {
-         //   this.set('author_id', 1);
-        //}
-    },
-
 	author: function() {
-		return this.belongsTo(User, 'author_id');
+		return this.belongsTo(User, 'user_id');
 	},
-
-    comments: function() {
-        return this.hasMany(Comment, 'post_id');
-    }
 
 }, {
     findAll: function (options) {
     	options = options || {};
-    	options.withRelated = ['author', 'comments', 'comments.author'];
+    	options.withRelated = ['author'];
         return myBookshelf.Model.findAll.call(this, options);
     },
 
     findOne: function(args, options) {
     	options = options || {};
 
-    	options.withRelated = ['author', 'comments', 'comments.author'];
+    	options.withRelated = ['author'];
     	return myBookshelf.Model.findOne.call(this, args, options);
     },
 
@@ -72,10 +49,10 @@ Post = myBookshelf.Model.extend({
         });
     },
 
-    add: function(newPostData, options) {
+    add: function(newComment, options) {
         var self = this;
 
-        return myBookshelf.Model.add.call(this, newPostData, options);
+        return myBookshelf.Model.add.call(this, newComment, options);
     },
 
     destroy: function(_id, options) {
@@ -88,12 +65,12 @@ Post = myBookshelf.Model.extend({
 
 });
 
-Posts = myBookshelf.Collection.extend({
-	model: Post
+Comments = myBookshelf.Collection.extend({
+	model: Comment
 });
 
 
 module.exports = {
-	Post: Post,
-	Posts: Posts
+	Comment: Comment,
+	Comments: Comments
 };

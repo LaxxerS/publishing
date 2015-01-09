@@ -28,7 +28,7 @@ posts = {
             if (result) {
                 omitted = result.toJSON();
                 omitted.author = _.omit(omitted.author, Blacklist);
-
+                omitted.comments = _.sortBy(omitted.comments, 'updated_at').reverse();
                 return omitted;
             }
                 return new Error('Post not found');
@@ -55,6 +55,20 @@ posts = {
                 }
                 return new Error('Post not found');
             });
+    },
+    extAdd: function(newPostData) {
+            var _newPostdata = newPostData,
+                id;
+
+            return dataProvider.User.findOne({ 'username': _newPostdata.username }).then(function(result) {
+                result = result.toJSON();
+                id = result.id;
+                id = parseInt(id);
+                _newPostdata = _.assign(_newPostdata, {'author_id': id })
+                console.log(_newPostdata)
+                delete _newPostdata.username;
+                return dataProvider.Post.add(_newPostdata);
+            })
     },
 
     destroy: function(args) {

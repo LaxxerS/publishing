@@ -4,13 +4,14 @@ module.exports = function(server) {
     // ## User
     server.get('/admin/api/v0.1/users/', api.requestHandler(api.users.browse));
     server.get('/admin/api/v0.1/users/:username/', api.requestHandler(api.users.read));
-    server.post('/admin/api/v0.1/users/', api.requestHandler(api.users.add));
     server.put('/admin/api/v0.1/users/:username/', api.requestHandler(api.users.edit));
+    server.post('/admin/api/v0.1/users/', api.requestHandler(api.users.add));
 
     // ## Post
     server.get('/admin/api/v0.1/posts/:username/', api.requestHandler(api.posts.browse));
     server.get('/admin/api/v0.1/posts/', api.requestHandler(api.posts.all));
     server.get('/admin/api/v0.1/posts/:username/:slug/', api.requestHandler(api.posts.read));
+    server.post('/admin/api/v0.1/posts/', api.requestHandler(api.posts.extAdd));
 
     // ## Follower
     server.get('/admin/api/v0.1/followers/:follower_id/:following_id/', api.requestHandler(api.followers.read));
@@ -19,6 +20,7 @@ module.exports = function(server) {
 
     // ## Collection
     server.get('/admin/api/v0.1/collections/all/:username/', api.requestHandler(api.collections.browse));
+    server.post('/admin/api/v0.1/collections/', api.requestHandler(api.collections.add));
     server.get('/admin/api/v0.1/collections/:slug/', api.requestHandler(api.collections.read));
     server.get('/admin/api/v0.1/collections/', api.requestHandler(api.collections.all));
 
@@ -35,8 +37,12 @@ module.exports = function(server) {
     server.delete('/admin/api/v0.1/bookmarks/:id/', api.requestHandler(api.bookmarks.destroy));
 
     // ## Recommend
-    server.get('/admin/api/v0.1/recommends/all/:owner_id/', api.requestHandler(api.recommends.browse));
+    server.get('/admin/api/v0.1/recommends/all/', api.requestHandler(api.recommends.browse));
     server.get('/admin/api/v0.1/recommends/:owner_id/:post_id/', api.requestHandler(api.recommends.read));
     server.post('/admin/api/v0.1/recommends/', api.requestHandler(api.recommends.add));
     server.delete('/admin/api/v0.1/recommends/:id/', api.requestHandler(api.recommends.destroy));
+
+    // ## Comment 
+    server.get('/admin/api/v0.1/comments/', api.requestHandler(api.comments.browse));
+    server.post('/admin/api/v0.1/comments/', api.requestHandler(api.comments.add));
 }

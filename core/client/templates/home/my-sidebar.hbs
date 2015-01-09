@@ -1,0 +1,7 @@
+{{#each []}}
+	<section class="sidebar-block">
+		<div class="rounded"><span class="rank">{{plus @index}}</span></div>
+		<span class="post-title"><a href="/@{{posts.author.username}}/{{posts.slug}}/">{{posts.title}}</a></span>
+		<span class="author"><a href="/@{{posts.author.username}}/">{{posts.author.name}}</a></span>
+	</section>
+{{/each}}

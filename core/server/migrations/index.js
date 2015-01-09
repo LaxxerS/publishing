@@ -6,6 +6,7 @@ var knex 	 = require('../models/base').knex,
 	CollectionPost= require('../models/collection-post').CollectionPost,
 	Bookmark = require('../models/bookmark').Bookmark,
 	Recommend = require('../models/recommend').Recommend,
+	Comment = require('../models/comment').Comment,
 
 	user_1,
 	user_2,
@@ -67,6 +68,13 @@ collection_1 = {
 	"editor_id" : 1
 }
 
+comment_1 = {
+	"markdown": "My comment",
+	"post_id": 1,
+	"user_id" : 1
+}
+
+
 
 function PopulateUsers(user) {
 	return User.add(user).then(function(user) {
@@ -92,9 +100,9 @@ function PopulateBookmark(bookmark) {
 	})	
 }
 
-function PopulateRecommend(recommend) {
-	return Recommend.add(recommend).then(function() {
-		console.log("recommenddone");
+function PopulateComment(comment) {
+	return Comment.add(comment).then(function() {
+		console.log("commentdone");
 	})	
 }
 
@@ -218,6 +226,24 @@ init = function() {
 				t.timestamps();
 			}).then(function() {
 				console.log("recommends done");
+			})
+		}
+	});
+
+	knex.schema.hasTable('comments').then(function(exists) {
+		if(!exists) {
+			return knex.schema.createTable('comments', function(t) {
+				t.increments('id').primary();
+				t.string('uuid', 36);
+				t.integer('post_id');
+				t.integer('user_id');
+				t.text('markdown', 16777215);
+				t.text('html', 16777215);
+				t.timestamps();
+			}).then(function() {
+				console.log("comments done");
+			}).then(function() {
+				PopulateComment(comment_1);
 			})
 		}
 	});

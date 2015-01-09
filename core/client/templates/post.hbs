@@ -22,7 +22,39 @@
 				</div>
 			    <li class="button-bookmark right"><a href="#" class="bookmark-add"><i class="fa fa-bookmark"></i></a></li>
 			</ul>		
-		</section>	
+		</section>
+	</section>
+</section>
+
+<section class="comments-button">
+	<span style="display: block; margin-bottom: 20px;">Have thoughts to share?</span>
+	<button class="add-comment"><a href="" class="add-com">Write your comment</a></button>
+</section>
+
+<section class="post-comments">
+	<section class="section-title">
+		<label for="">Comments</label>	
 	</section>
 
-</section>
+	{{#each comments}}
+	<section class="comments-wrapper">
+		<div class="rounded large">
+			<div class="user-image" style="background-image: url(/shared/img/{{#if author.image}}{{author.image}}{{else}}default.png{{/if}});"></div>
+		</div>
+			<span class="author"><a href="/@{{author.username}}/">{{author.name}}</a></span>
+			<span class="time">{{date created_at timeago="True"}}</span>
+			<section class="comment-contents">
+				{{markdown}}
+			</section>
+	</section>
+	{{/each}}
+</section>	
+
+<div class="modal-wrapper">
+	<a href="" class="close">close [x]</a>
+	<div class="login-form">
+		<span class="title">Write a comment</span>
+		<textarea placeholder="Write your comment" autofocus></textarea>
+		<input type="submit" class="login-submit" value="Post">
+	</div>
+</div>

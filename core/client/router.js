@@ -14,6 +14,7 @@
 		},
 
 		signup: function() {
+			NProgress.start();
 			App.currentView = new App.Views.Signup({ el: '#main' });
 		},
 
@@ -22,39 +23,46 @@
 		},
 
 		profile: function(username) {
-		        var user = new App.Models.User();
-		        user.urlRoot = App.paths.api + '/users/' + username;
-		    	if(username) {
-		    		user.username = username;
-		    		user.fetch().then(function() {
-		    			App.currentView = new App.Views.Profile({ el: '#main', model: user });
-		    		});
-		    	}
+			NProgress.start();
+	        var user = new App.Models.User();
+	        user.urlRoot = App.paths.api + '/users/' + username;
+	    	if(username) {
+	    		user.username = username;
+	    		user.fetch().then(function() {
+	    			App.currentView = new App.Views.Profile({ el: '#main', model: user });
+	    			NProgress.done();
+	    		});
+	    	}
 		},
 
 		post: function(username, slug) {
+			NProgress.start();
 			var post = new App.Models.Post();
 			post.urlRoot = App.paths.api + '/posts/' + username + '/' + slug;
 			if(slug) {
 				post.slug = slug;
 				post.fetch().then(function() {
 					App.currentView = new App.Views.Post({ el: '#main', model: post });
+					NProgress.done();
 				});
 			}
 			
 		},
 
 		collection: function(slug) {
+			NProgress.start();
 			if(slug) {
 				var collection = new App.Models.Collection();
 				collection.url = App.paths.api + '/collections/' + slug + '/';
 				collection.fetch().then(function() {
+					NProgress.done();
 					App.currentView = new App.Views.Collection({ el: '#main', model: collection });
 				});
 			} 
 		},
 		
 		allcollections: function() {
+			NProgress.start();
 			App.currentView = new App.Views.AllCollections({ el: '#main' });
 		}
 	});

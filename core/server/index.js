@@ -8,6 +8,7 @@ var express 	 = require('express'),
 	bodyParser	 = require('body-parser'),
 	busboy       = require('connect-busboy'),
 	when         = require('when'),
+	cors         = require('cors'),
 
 	middlewares  = require('./middlewares'),
 
@@ -28,7 +29,7 @@ function init() {
 	server.use(session({secret: '<mysecret>', saveUninitialized: true, resave: true}));
 	server.use(flash());
 	server.use(busboy());
-
+	server.use(cors());
 
 	// ## Models and Migrations
 	models.init();
@@ -48,7 +49,7 @@ function init() {
 	//helpers.loadCoreHelpers(adminHbs);		
 
 	// ## Boot server
-	server.set('port', process.env.PORT || 3000);
+	server.set('port', process.env.PORT || 8080);
 	server.listen(server.get('port'), function() {
 	    console.log('Express server listening on port ' + server.get('port'));
 	});

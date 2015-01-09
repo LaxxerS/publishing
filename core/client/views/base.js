@@ -43,7 +43,6 @@
         initialize: function() {
             var self = this;
             this.render();
-            console.log(this.model);
         },
 
         render: function () {

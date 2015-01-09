@@ -19,3 +19,16 @@
 	
 <section class="profile-contents">
 </section>
+
+<div class="modal-wrapper">
+	<a href="" class="close">close [x]</a>
+	<div class="login-form">
+		<span class="title">New Collection</span>
+		<div class="upload-holder"><a href="" class="upload"><i class="fa fa-camera"></i></a></div>
+		<input type="file" id="collection-cover" name="files[]" data-url="htttp://localhost:3000/admin/upload/" style="display: none;" />
+		<input type="text" class="login-name" name="title" placeholder="Collection Name" autocapitalize="off" autocomplete="off" spellcheck="false" required autofocus>
+		<input type="hidden" name="cover" value="">
+		<input type="text" class="login-name" name="description" placeholder="Collection Description" autocapitalize="off" autocomplete="off" spellcheck="false" required>
+		<input type="submit" class="login-submit" value="Create">
+	</div>
+</div>
