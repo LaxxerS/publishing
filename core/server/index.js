@@ -14,9 +14,6 @@ var express 	 = require('express'),
 
 	models		 = require('./models'),
 	routes 	  	 = require('./routes');
-	//helpers      = require('./helpers');
-
-
 
 function init() {
 	var adminHbs = hbs.create(),
@@ -39,19 +36,13 @@ function init() {
 
 	// ## Routing
 	routes.api(server);
-
-	//routes.admin(server);
-	
 	routes.frontend(server);
-
-	// ## Helpers
-	//helpers.update();
-	//helpers.loadCoreHelpers(adminHbs);		
 
 	// ## Boot server
 	server.set('port', process.env.PORT || 8080);
 	server.listen(server.get('port'), function() {
-	    console.log('Express server listening on port ' + server.get('port'));
+	    console.log('\nServer listening on port ' + server.get('port'));
+	    console.log('Crtl-C to shut down server');
 	});
 }
 

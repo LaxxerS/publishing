@@ -41,27 +41,11 @@ Comment = myBookshelf.Model.extend({
     	return myBookshelf.Model.findOne.call(this, args, options);
     },
 
-    edit: function(editedPost, options) {
-    	var self = this;
-
-    	return myBookshelf.Model.edit.call(this, editedPost, options).then(function(post) {
-            return self.findOne({status: 'all', id: post.id}, options);
-        });
-    },
-
     add: function(newComment, options) {
         var self = this;
 
         return myBookshelf.Model.add.call(this, newComment, options);
     },
-
-    destroy: function(_id, options) {
-        options = options || {};
-
-        return this.forge({id: _id}).fetch().then(function(post) {
-            return post.destroy(options);
-        });
-    }
 
 });
 

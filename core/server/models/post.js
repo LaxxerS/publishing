@@ -35,13 +35,6 @@ Post = myBookshelf.Model.extend({
         myBookshelf.Model.prototype.saving.call(this);
 	},
 
-    creating: function(options) {
- 
-        //if (!this.get('author_id')) {
-         //   this.set('author_id', 1);
-        //}
-    },
-
 	author: function() {
 		return this.belongsTo(User, 'author_id');
 	},

@@ -1,5 +1,5 @@
 (function() {
-	'use struct';
+	'use strict';
 
 	function AppPaths() {
 		var root 	= "/";
