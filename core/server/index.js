@@ -39,7 +39,7 @@ function init() {
 	routes.frontend(server);
 
 	// ## Boot server
-	server.set('port', process.env.PORT || 8080);
+	server.set('port', process.env.PORT || 3000);
 	server.listen(server.get('port'), function() {
 	    console.log('\nServer listening on port ' + server.get('port'));
 	    console.log('Crtl-C to shut down server');

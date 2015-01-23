@@ -643,6 +643,7 @@ html, body {
 	-webkit-transition: color 0.5s ease-in-out;
 	   -moz-transition: color 0.5s ease-in-out;
 	        transition: color 0.5s ease-in-out;
+
 }
 
 .block-contents .label:hover {
@@ -1496,9 +1497,94 @@ textarea:focus {
 button:focus {
 	outline: none;
 }
+
+/* MOBILE */
+
+@media only screen and (max-width: 480px) {
+	.nav-menu {
+		padding: 23px 5px;
+	}
+	.nav-buttons {
+		display: none;
+	}
+
+	.main-contents {
+		width: 100%;
+	}
+
+	.contents-wrapper {
+		margin: 10px;
+	}
+
+	.sidebar {
+		display: none;
+	}
+
+	/* PROFILE */
+	.profile-wrapper .profile-follow {
+		margin: 10px;
+	}
+
+	.profile-wrapper .user-meta li { 
+		padding: 5px;
+	}
+
+	.profile-contents {
+		top: 120%;
+	}
+	.block-contents .label {
+		margin: 0 70px;
+	}
+
+	.block-contents .post-wrapper {
+		width: 100%;
+		margin: 20px auto;
+	}
+
+	/* SINGLE POST */
+	.post-wrapper {
+		overflow: hidden;
+	}
+
+	.post-contents {
+		overflow: hidden;
+		margin: 0;
+		padding: 90px 10px;
+	}
+
+	.post-contents .post-footer-buttons .footer-buttons {
+		position: absolute;
+		right: 10px;
+	}
+
+	.footer-buttons .button-add-drop {
+		position: absolute;
+		top: -100px;
+		left: -200px;
+	}
+
+	.post-comments {
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+		box-sizing: border-box;         /* Opera/IE 8+ */		
+		width: 100%;
+		padding: 10px;
+	}
+
+	.post-comments .section-title {
+		width: 100%;
+	}
+
+	.post-comments .comments-wrapper {
+		width: 100%;
+	}
+
+
+}
 /* Color Palette
    - Almost-black: #191918
    - Very-light-grey: #fafafa
    - Img-bg-grey: #f0f0f0
 
 */
+

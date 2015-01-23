@@ -498,7 +498,7 @@ function program6(depth0,data) {
   return "\r\n		<li class=\"button-sign\"><a href=\"\" class=\"sign-in\">Sign in / Sign up</a></li>\r\n		";
   }
 
-  buffer += "\r\n<nav class=\"nav-menu\">\r\n	<a href=\"/\">Publishing &mdash; &hearts;</a>\r\n	<nav class=\"nav-tabs\">\r\n		<ul class=\"nav-tabs-list\">\r\n			<li><a href=\"#\">home</a></li>\r\n			<li><a href=\"#discover\">discover</a></li>\r\n			<li><a href=\"#bookmarks\">bookmarks</a></li>\r\n		</ul>\r\n	</nav>\r\n	<ul class=\"nav-buttons\">\r\n		<li class=\"button-collection\"><a href=\"/collection/\"><i class=\"fa fa-folder\"></i></a></li>\r\n		";
+  buffer += "\r\n<nav class=\"nav-menu\">\r\n	<a href=\"/\">Publishing</a>\r\n	<nav class=\"nav-tabs\">\r\n		<ul class=\"nav-tabs-list\">\r\n			<li><a href=\"#\">home</a></li>\r\n			<li><a href=\"#discover\">discover</a></li>\r\n			<li><a href=\"#bookmarks\">bookmarks</a></li>\r\n		</ul>\r\n	</nav>\r\n	<ul class=\"nav-buttons\">\r\n		<li class=\"button-collection\"><a href=\"/collection/\"><i class=\"fa fa-folder\"></i></a></li>\r\n		";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.id), {hash:{},inverse:self.program(6, program6, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\r\n	</ul>\r\n</nav>\r\n";
@@ -584,10 +584,10 @@ function program1(depth0,data) {
     'timeago': ("True")
   },data:data},helper ? helper.call(depth0, (depth0 && depth0.created_at), options) : helperMissing.call(depth0, "date", (depth0 && depth0.created_at), options)))
     + "</span>\r\n			<section class=\"comment-contents\">\r\n				";
-  if (helper = helpers.markdown) { stack1 = helper.call(depth0, {hash:{},data:data}); }
-  else { helper = (depth0 && depth0.markdown); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
-  buffer += escapeExpression(stack1)
-    + "\r\n			</section>\r\n	</section>\r\n	";
+  if (helper = helpers.html) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.html); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n			</section>\r\n	</section>\r\n	";
   return buffer;
   }
 function program2(depth0,data) {
