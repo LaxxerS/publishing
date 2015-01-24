@@ -2,7 +2,8 @@
 	'use strict';
 
 	var SessionButtons,
-		PostButtons;
+		PostButtons,
+		Mobile;
 
 	App.Views.Post = App.View.extend({
 
@@ -22,6 +23,7 @@
 			var session = new App.Models.Session();
 			session.fetch().then(function() {
 				 new SessionButtons({ el: '.post-buttons', model: session });
+				 new Mobile({ el: '.mobile-menu-holder', model: session });
 			});
 		},
 
@@ -50,7 +52,7 @@
 
 			var session = new App.Models.Session();
 			session.fetch().then(function(sess) {
-				if(sess) {
+				if(sess.id) {
 					var bookmark = new App.Models.Bookmark();
 					bookmark.urlRoot = App.paths.api +'/bookmarks/' + sess.id + '/' + post_id + '/';
 					bookmark.fetch().then(function(result) {
@@ -73,7 +75,11 @@
 							})							
 						}
 					});
-
+				} else {
+					App.notifications.addItem({
+	                    message: 'You are not logged in.',
+	                });									
+					NProgress.done();					
 				}
 			})	
 		},
@@ -85,7 +91,7 @@
 
 			var session = new App.Models.Session();
 			session.fetch().then(function(sess) {
-				if(sess) {
+				if(sess.id) {
 					var recommend = new App.Models.Bookmark();
 					recommend.urlRoot = App.paths.api +'/recommends/' + sess.id + '/' + post_id + '/';
 					recommend.fetch().then(function(result) {
@@ -108,7 +114,11 @@
 							})							
 						}
 					});
-
+				} else {
+					App.notifications.addItem({
+	                    message: 'You are not logged in.',
+	                });									
+					NProgress.done();					
 				}
 			})	
 		},
@@ -197,4 +207,11 @@
 		}
 	});
 	
+	Mobile = App.View.extend({
+		templateName: 'partial/mobile-menu',
+
+		initialize: function() {
+			this.render();
+		}		
+	})
 }());

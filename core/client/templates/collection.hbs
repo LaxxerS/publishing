@@ -1,6 +1,7 @@
 <nav class="collection-menu">
-	<a href="/" class="back">M</a>
-	<span class="collection-editor">Collection edited by {{editor.name}}</span>
+    <div class="home-icon"><a href="/" class="back">Publishing</a></div>
+    <div class="mobile-icon"><a href="/"><i class="fa fa-bars"></i></a></div>
+	<span class="collection-editor">Collection edited by <span class="post-author"><a href="/@{{editor.username}}/">{{editor.name}}</a></span>
     <div class="collection-buttons">
     </div>
 </nav>
@@ -36,3 +37,7 @@
         {{/if}} 
     </section>    
 </section>
+
+<aside class="mobile-menu-holder">
+    
+</aside>

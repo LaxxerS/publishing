@@ -1,0 +1,17 @@
+<div class="mobile-menu">
+	{{#if id}}
+    <ul>
+        <li><a href="/@{{username}}"><div class="rounded"><div class="user-image" style="background-image: url({{#if image}}/shared/img/{{image}}{{else}}/shared/img/default.png{{/if}}); background-size: cover;"></div></div>{{name}}<p>Profile & Settings</p></a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/collection/">Collections</a></li>
+        <li><a href="/">Settings</a></li>
+        <li><a href="">Sign Out</a></li>
+    </ul>
+    {{else}} 
+    <ol>
+    	<li><a href="/">Home</a></li>
+        <li><a href="/" class="sign-in">Sign up / Register</a></li>
+        <li><a href="/collection/">Collections</a></li>
+    </ol>    
+    {{/if}}
+</div>

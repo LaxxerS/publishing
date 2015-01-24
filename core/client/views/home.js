@@ -6,7 +6,8 @@
 		Feed,
 		Discover,
 		Bookmark,
-		Top;
+		Top,
+		Mobile;
 
 	App.Views.Home = App.View.extend({
 
@@ -23,10 +24,6 @@
 			this.menu = this.$('.navbar');
 			this.menu.find('li').removeClass('active');
 
-			var user = new App.Models.Session();
-			user.fetch().then(function() {
-				this.partial = new Partial({ el: '.navbar', model: user });
-			});
 
 			var target = window.location.pathname.split( '/' )[1];
 
@@ -48,6 +45,7 @@
 			var user = new App.Models.Session();
 			user.fetch().then(function() {
 				this.partial = new Partial({ el: '.navbar', model: user });
+				this.mobile = new Mobile({ el: '.mobile-menu-holder', model: user });
 			});
 		},
 
@@ -288,5 +286,13 @@
 		initialize: function() {
 			this.render();
 		}
+	});
+
+	Mobile = App.View.extend({
+		templateName: 'partial/mobile-menu',
+
+		initialize: function() {
+			this.render();
+		}		
 	})
 }());

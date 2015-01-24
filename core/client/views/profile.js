@@ -3,6 +3,7 @@
 
 	var Latest,
 		Collection,
+		Mobile,
 		Button = {};
 
 	App.Views.Profile = App.View.extend({
@@ -43,7 +44,10 @@
 				}
 					
 			})
-			
+			var user = new App.Models.Session();
+			user.fetch().then(function() {
+				this.mobile = new Mobile({ el: '.mobile-menu-holder', model: user });
+			});			
 			
 		},
 
@@ -138,4 +142,12 @@
 	Collection = App.View.extend({
 		templateName: 'profile/profile-collection',
 	});
+
+	Mobile = App.View.extend({
+		templateName: 'partial/mobile-menu',
+
+		initialize: function() {
+			this.render();
+		}		
+	})	
 }());

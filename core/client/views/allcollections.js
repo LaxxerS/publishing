@@ -2,7 +2,8 @@
 	'use strict';	
 
 	var SessionButtons,
-		Collection;
+		Collection,
+		Mobile;
 
 	App.Views.AllCollections = App.View.extend({
 
@@ -33,7 +34,10 @@
 				}
 
 			});			
-
+			var user = new App.Models.Session();
+			user.fetch().then(function() {
+				this.mobile = new Mobile({ el: '.mobile-menu-holder', model: user });
+			});
 		},
 
 		showModal: function(e) {
@@ -142,5 +146,13 @@
 		initialize: function() {
 			this.render();
 		}
-	})
+	});
+
+	Mobile = App.View.extend({
+		templateName: 'partial/mobile-menu',
+
+		initialize: function() {
+			this.render();
+		}		
+	})	
 }());	

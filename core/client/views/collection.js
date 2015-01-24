@@ -1,7 +1,8 @@
 (function() {
 	'use strict';
 
-	var SessionButtons;
+	var SessionButtons,
+		Mobile;
 
 	App.Views.Collection = App.View.extend({
 
@@ -16,7 +17,8 @@
 
 			var session = new App.Models.Session();
 			session.fetch().then(function() {
-				 new SessionButtons({ el: '.collection-buttons', model: session });
+				new SessionButtons({ el: '.collection-buttons', model: session });
+				new Mobile({ el: '.mobile-menu-holder', model: session });
 			});
 		},
 
@@ -67,5 +69,12 @@
 			this.render();
 		}
 	});
+	
+	Mobile = App.View.extend({
+		templateName: 'partial/mobile-menu',
 
+		initialize: function() {
+			this.render();
+		}		
+	})	
 }());	

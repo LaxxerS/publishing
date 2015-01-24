@@ -81,8 +81,8 @@
         },
 
         removeItem: function() {
-            console.log('ee');
+            console.log('removed!');
         },
-    })
+    });
 
 } ());
