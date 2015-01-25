@@ -50,6 +50,11 @@ frontendControllers = {
 		});
 	},
 
+	destroySession: function(req, res) {
+		req.session.destroy();
+		res.redirect('/');
+	},
+
 	upload: function(req, res) {
 	    var fstream,
 	    	saveTo,

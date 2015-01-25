@@ -16,6 +16,9 @@
 
     $('#manage').on('click', '.mobile-icon', function(event) {
         responsiveAction(event, '(max-width: 480px)', function () {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 0);
             $(".mobile-menu").toggleClass("active");
             $("#main").toggleClass("active");
             $(".mobile-icon").toggleClass("active");

@@ -10,7 +10,8 @@
 			'': 'home',
 			'(@:username)/': 'profile',
 			'(@:username)(/:slug)/': 'post',
-			'(:tab)/': 'home'
+			'(:tab)/': 'home',
+			'profile/settings/': 'settings'
 		},
 
 		signup: function() {
@@ -64,6 +65,14 @@
 		allcollections: function() {
 			NProgress.start();
 			App.currentView = new App.Views.AllCollections({ el: '#main' });
+		},
+
+		settings: function() {
+			NProgress.start();
+			var session = new App.Models.Session();
+			session.fetch().then(function() {
+				App.currentView = new App.Views.Settings({ el: '#main', model: session });
+			})
 		}
 	});
 			

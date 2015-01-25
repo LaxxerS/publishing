@@ -4,6 +4,7 @@
 	var Latest,
 		Collection,
 		Mobile,
+		SessionButtons,
 		Button = {};
 
 	App.Views.Profile = App.View.extend({
@@ -47,6 +48,7 @@
 			var user = new App.Models.Session();
 			user.fetch().then(function() {
 				this.mobile = new Mobile({ el: '.mobile-menu-holder', model: user });
+				new SessionButtons({ el: '.collection-buttons', model: user });
 			});			
 			
 		},
@@ -122,7 +124,7 @@
 				});
 		}
 
-	})
+	});
 
 	Latest = App.View.extend({
 
@@ -143,11 +145,20 @@
 		templateName: 'profile/profile-collection',
 	});
 
+	SessionButtons = App.View.extend({
+
+		templateName: 'partial/session-buttons',
+
+		initialize: function() {
+			this.render();
+		}
+	});
+
 	Mobile = App.View.extend({
 		templateName: 'partial/mobile-menu',
 
 		initialize: function() {
 			this.render();
-		}		
+		},
 	})	
 }());

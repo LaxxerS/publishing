@@ -194,7 +194,7 @@
 
 			var session = new App.Models.Session();
 			session.fetch().then(function(sess) {
-				if(sess) {
+				if(sess.id) {
 					var bookmark = new App.Models.Bookmark();
 					bookmark.urlRoot = App.paths.api +'/bookmarks/' + sess.id + '/' + post_id + '/';
 					bookmark.fetch().then(function(result) {
@@ -218,7 +218,11 @@
 							})							
 						}
 					})
-
+				} else {
+					App.notifications.addItem({
+	                    message: 'You are not logged in.',
+	                });									
+					NProgress.done();					
 				}
 			})	
 		},

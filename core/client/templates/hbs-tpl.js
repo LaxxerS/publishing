@@ -55,7 +55,7 @@ function program4(depth0,data) {
   return buffer;
   }
 
-  buffer += "<nav class=\"collection-menu\">\r\n    <div class=\"home-icon\"><a href=\"/\" class=\"back\">Publishing</a></div>\r\n    <div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n	<span class=\"collection-editor\">Collection edited by <span class=\"post-author\"><a href=\"/@"
+  buffer += "<nav class=\"collection-menu\">\r\n    <div class=\"home-icon\"><a href=\"/\" class=\"back\"><i class=\"fa fa-home\"></i></a></div>\r\n    <div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n	<span class=\"collection-editor\">Collection edited by <span class=\"post-author\"><a href=\"/@"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.editor)),stack1 == null || stack1 === false ? stack1 : stack1.username)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "/\">"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.editor)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
@@ -83,7 +83,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<nav class=\"collection-menu\">\r\n	<div class=\"home-icon\"><a href=\"/\" class=\"back\">Publishing</a></div>\r\n	<div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n	<span class=\"collection-editor\">&nbsp;</span>\r\n    <div class=\"collection-buttons\">\r\n    </div>\r\n</nav>\r\n<section class=\"profile-wrapper\">\r\n	<div class=\"user-name\">Collections</div>\r\n	<div class=\"user-bio\">Stories grouped by theme or genre</div>\r\n\r\n	<section class=\"profile-follow-wrapper\">\r\n		<input type=\"hidden\" class=\"follow_id\" name=\"follow_id\" value=";
+  buffer += "<nav class=\"collection-menu\">\r\n	<div class=\"home-icon\"><a href=\"/\" class=\"back\"><i class=\"fa fa-home\"></i></a></div>\r\n	<div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n	<span class=\"collection-editor\">&nbsp;</span>\r\n    <div class=\"collection-buttons\">\r\n    </div>\r\n</nav>\r\n<section class=\"profile-wrapper\">\r\n	<div class=\"user-name\">Collections</div>\r\n	<div class=\"user-bio\">Stories grouped by theme or genre</div>\r\n\r\n	<section class=\"profile-follow-wrapper\">\r\n		<input type=\"hidden\" class=\"follow_id\" name=\"follow_id\" value=";
   if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -481,7 +481,7 @@ function program1(depth0,data) {
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "<p>Profile & Settings</p></a></li>\r\n        <li><a href=\"/\">Home</a></li>\r\n        <li><a href=\"/collection/\">Collections</a></li>\r\n        <li><a href=\"/\">Settings</a></li>\r\n        <li><a href=\"\">Sign Out</a></li>\r\n    </ul>\r\n    ";
+    + "<p>Profile & Settings</p></a></li>\r\n        <li><a href=\"/\">Home</a></li>\r\n        <li><a href=\"/collection/\">Collections</a></li>\r\n        <li><a href=\"/profile/settings/\">Settings</a></li>\r\n        <li><a href=\"/logout/\">Sign Out</a></li>\r\n    </ul>\r\n    ";
   return buffer;
   }
 function program2(depth0,data) {
@@ -521,14 +521,14 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\r\n		<li class=\"button-profile\"><a href=\"/@";
+  buffer += "\r\n		<li class=\"button-collection\"><a href=\"/collection/\"><i class=\"fa fa-book\"></i></a></li>\r\n		<li class=\"button-collection\"><a href=\"/profile/settings/\"><i class=\"fa fa-cog \"></i></a></li>\r\n		<li class=\"button-profile\"><a href=\"/@";
   if (helper = helpers.username) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.username); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
     + "/\" style=\"background-image: url(/shared/img/";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.image), {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += ");\"></a></li>\r\n		<li class=\"button-sign\"><a href=\"\" class=\"sign-in\">Logout</a></li>\r\n		";
+  buffer += ");\"></a></li>\r\n		<li class=\"button-sign\"><a href=\"/logout/\">Logout</a></li>\r\n		";
   return buffer;
   }
 function program2(depth0,data) {
@@ -551,7 +551,7 @@ function program6(depth0,data) {
   return "\r\n		<li class=\"button-sign\"><a href=\"\" class=\"sign-in\">Sign in / Sign up</a></li>\r\n		";
   }
 
-  buffer += "\r\n<nav class=\"nav-menu\">\r\n	<div class=\"home-icon\"><a href=\"/\">Publishing</a></div>\r\n	<div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n	<nav class=\"nav-tabs\">\r\n		<ul class=\"nav-tabs-list\">\r\n			<li><a href=\"#\">home</a></li>\r\n			<li><a href=\"#discover\">discover</a></li>\r\n			<li><a href=\"#bookmarks\">bookmarks</a></li>\r\n		</ul>\r\n	</nav>\r\n	<ul class=\"nav-buttons\">\r\n		<li class=\"button-collection\"><a href=\"/collection/\"><i class=\"fa fa-folder\"></i></a></li>\r\n		";
+  buffer += "\r\n<nav class=\"nav-menu\">\r\n	<div class=\"home-icon\"><a href=\"/\">Publishing</a></div>\r\n	<div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n	<nav class=\"nav-tabs\">\r\n		<ul class=\"nav-tabs-list\">\r\n			<li><a href=\"#\">home</a></li>\r\n			<li><a href=\"#discover\">discover</a></li>\r\n			<li><a href=\"#bookmarks\">bookmarks</a></li>\r\n		</ul>\r\n	</nav>\r\n	<ul class=\"nav-buttons\">\r\n		";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.id), {hash:{},inverse:self.program(6, program6, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\r\n	</ul>\r\n</nav>\r\n";
@@ -580,14 +580,14 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\r\n    <li class=\"button-profile\"><a href=\"/@";
+  buffer += "\r\n    <li class=\"button-collection\"><a href=\"/collection/\"><i class=\"fa fa-book\"></i></a></li>\r\n	<li class=\"button-collection\"><a href=\"/profile/settings/\"><i class=\"fa fa-cog \"></i></a></li>\r\n    <li class=\"button-profile\"><a href=\"/@";
   if (helper = helpers.username) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.username); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
     + "/\" style=\"background-image: url(/shared/img/";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.image), {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += ");\"></a></li>\r\n    <li class=\"button-sign\"><a href=\"/collection/\"class=\"back\">Logout</a></li>\r\n    ";
+  buffer += ");\"></a></li>\r\n    <li class=\"button-sign\"><a href=\"/logout/\"class=\"back\">Logout</a></li>\r\n    ";
   return buffer;
   }
 function program2(depth0,data) {
@@ -610,7 +610,7 @@ function program6(depth0,data) {
   return "\r\n    <li class=\"button-home\"><a href=\"/\" class=\"back\">Back to home</a></li>\r\n    ";
   }
 
-  buffer += "<ul class=\"session-buttons\">\r\n	<li class=\"button-collection\"><a href=\"/collection/\"><i class=\"fa fa-folder\"></i></a></li>\r\n    ";
+  buffer += "<ul class=\"session-buttons\">\r\n    ";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.id), {hash:{},inverse:self.program(6, program6, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\r\n</ul>";
@@ -655,7 +655,7 @@ function program4(depth0,data) {
   return "default.png";
   }
 
-  buffer += "<nav class=\"post-menu\">\r\n	<div class=\"home-icon\"><a href=\"/\" class=\"back\">Publishing</a></div>\r\n	<div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n	<span class=\"post-author\"><a href=\"/@"
+  buffer += "<nav class=\"post-menu\">\r\n	<div class=\"home-icon\"><a href=\"/\" class=\"back\"><i class=\"fa fa-home\"></i></a></div>\r\n	<div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n	<span class=\"post-author\"><a href=\"/@"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.author)),stack1 == null || stack1 === false ? stack1 : stack1.username)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "/\">"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.author)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
@@ -735,14 +735,7 @@ function program5(depth0,data) {
   return buffer;
   }
 
-  buffer += "<header class=\"navbar\">\r\n	<nav class=\"nav-menu\">\r\n		<div class=\"home-icon\"><a href=\"/\" class=\"back\">Publishing</a></div>\r\n		<div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n		<ul class=\"nav-buttons\">\r\n			<li><a href=\"/@";
-  if (helper = helpers.username) { stack1 = helper.call(depth0, {hash:{},data:data}); }
-  else { helper = (depth0 && depth0.username); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
-  buffer += escapeExpression(stack1)
-    + "/\" style=\"background-image: url(/shared/img/";
-  stack1 = helpers['if'].call(depth0, (depth0 && depth0.image), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += ");\"></a></li>\r\n			<li><a href=\"\"></a></li>\r\n			<li><a href=\"\"></a></li>\r\n		</ul>\r\n	</nav>\r\n</header>\r\n\r\n<section class=\"profile-wrapper\">\r\n	<div class=\"image-holder\">\r\n		<div class=\"user-image\" style=\"background-image:url(/shared/img/";
+  buffer += "<nav class=\"collection-menu\">\r\n	<div class=\"home-icon\"><a href=\"/\" class=\"back\"><i class=\"fa fa-home\"></i></a></div>\r\n	<div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n	<span class=\"collection-editor\">&nbsp;</span>\r\n    <div class=\"collection-buttons\">\r\n    </div>\r\n</nav>\r\n\r\n<section class=\"profile-wrapper\">\r\n	<div class=\"image-holder\">\r\n		<div class=\"user-image\" style=\"background-image:url(/shared/img/";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.image), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += ");\"></div>\r\n	</div>\r\n	<div class=\"user-name\">";
@@ -775,7 +768,7 @@ function program5(depth0,data) {
     + " is followed by</div>\r\n		";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.follower), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n	</div>\r\n</div>\r\n\r\n<section class=\"profile-contents\">\r\n</section>\r\n\r\n<aside class=\"mobile-menu-holder\">\r\n	\r\n</aside>";
+  buffer += "\r\n	</div>\r\n</div>\r\n\r\n<section class=\"profile-contents\">\r\n</section>\r\n\r\n<aside class=\"mobile-menu-holder\">\r\n	\r\n</aside>\r\n\r\n";
   return buffer;
   });
 
@@ -893,6 +886,28 @@ function program4(depth0,data) {
   stack1 = helpers['if'].call(depth0, depth0, {hash:{},inverse:self.program(4, program4, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\r\n<section class=\"profile-collection\">\r\n	\r\n</section>";
+  return buffer;
+  });
+
+this["JST"]["settings"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<nav class=\"collection-menu\">\r\n	<div class=\"home-icon\"><a href=\"/\" class=\"back\"><i class=\"fa fa-home\"></i></a></div>\r\n	<div class=\"mobile-icon\"><a href=\"/\"><i class=\"fa fa-bars\"></i></a></div>\r\n	<span class=\"collection-editor\">&nbsp;</span>\r\n    <div class=\"collection-buttons\">\r\n    </div>\r\n</nav>\r\n<section class=\"profile-wrapper\">\r\n	<div class=\"user-name\">Settings</div>\r\n	<div class=\"user-bio\">Change or update your settings</div>\r\n</section>\r\n\r\n<section class=\"settings-wrapper\">\r\n	<div class=\"settings-block\">\r\n		<label for=\"\">Your Name</label>\r\n		<button class=\"first\">Edit</button>\r\n		<input type=\"text\" class=\"settings\" name=\"name\" value=\"";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n		<p>You are advised to use your real name so that people recognize you.</p>\r\n	</div>\r\n	<div class=\"settings-block\">\r\n		<label for=\"\">Your Email Address</label>\r\n		<button class=\"second\">Edit</button>\r\n		<input type=\"email\" class=\"settings\" name=\"email\" value=\"";
+  if (helper = helpers.email) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.email); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n		<p>Your email address will be used to login into your account.</p>\r\n	</div>\r\n	<div class=\"settings-block\">\r\n		<label for=\"\">Your self-summary</label>\r\n		<button class=\"third\">Edit</button>\r\n		<input type=\"text\" class=\"settings\" name=\"bio\" value=\"";
+  if (helper = helpers.bio) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.bio); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" placeholder=\"Write yourself a biography..\">\r\n		<p>Briefly describe yourself in less than 120 words.</p>\r\n	</div>\r\n	<div class=\"settings-block\">\r\n	<button class=\"update\">Save & Update Settings</button>\r\n	</div>	\r\n</section>\r\n\r\n<aside class=\"mobile-menu-holder\">\r\n	\r\n</aside>";
   return buffer;
   });
 
