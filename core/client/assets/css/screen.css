@@ -325,7 +325,7 @@ a {
 	top: 60px;
 	right: 0;
 	width: 30%;
-	background: #fafafa;
+	background: #f7f7f7;
 	bottom: 0;
 	min-height: 100%;
     -webkit-box-sizing: border-box;
@@ -1035,7 +1035,7 @@ a {
 	min-height: 90px;
 	width: 100%;
 	flex: none;
-	background: #fafafa;
+	background: #f7f7f7;
 	text-align: center;
 	padding: 80px 0;
 	font-family:"jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
@@ -1965,7 +1965,7 @@ button:focus {
 }
 /* Color Palette
    - Almost-black: #191918
-   - Very-light-grey: #fafafa
+   - Very-light-grey: #f7f7f7
    - Img-bg-grey: #f0f0f0
 
 */
