@@ -110,10 +110,10 @@
 			}
 
 			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'http://localhost:3000/admin/upload/', true);
+			xhr.open('POST', '/admin/upload/', true);
 
 			xhr.onload = function () {
-			  if (xhr.status === 200) {
+			  if (xhr.status === 200 || xhr.status === 302) {
 			  	NProgress.done();
 				App.notifications.addItem({
                     message: 'Your collection cover has been uploaded.',

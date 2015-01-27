@@ -1148,7 +1148,7 @@ a {
 	height: 100%;
 	background: rgba(255, 255, 255, 0.95);
 	position: fixed;
-	z-index: 9999;
+	z-index: 9998;
 	top: 0;
 	left: 0;
 	display: none;
@@ -1574,7 +1574,7 @@ input[type="text"].settings:focus {
 	margin-right: auto;
 	left: 0;
 	right: 0;
-	z-index: 2000;
+	z-index: 9999;
 	border: 1px solid rgba(0,0,0,0.2);
 	border-top: none;
 	-moz-border-radius-bottomright: 5px;
@@ -1962,6 +1962,9 @@ button:focus {
 		margin: 0 auto;
 	}
 
+	.collection-wrapper .collection-block {
+		margin: 20px 0;
+	}
 }
 /* Color Palette
    - Almost-black: #191918
